@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
+        <source>Email</source>
+        <target>Adresa email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Email</note>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <target>Parola</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Password</note>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <target>Autentificare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">Login</note>
+      </trans-unit>
+      <trans-unit id="8ed79a89c8543e8344236d1b3b1af6fa90e633b1" datatype="html">
+        <source>Ai uitat parola?</source>
+        <target>Ai uitat parola?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Forgot password</note>
+      </trans-unit>
+      <trans-unit id="ad030e1164bf9c8ca801fb2a08f50266a6474019" datatype="html">
+        <source>Ai nevoie de un cont?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Ask the user if he needs an account</note>
+        <note priority="1" from="meaning">User needs account?</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

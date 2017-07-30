@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Enginizer</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+  <link rel="stylesheet" href="assets/owlcarousel/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="assets/owlcarousel/owl.theme.default.min.css"/>
+</head>
+<body>
+<enginizer-root>
+  <div class="jumbotron main-loading-screen">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-4 col-xs-12">
+          <div class="col-md-10 offset-md-1 col-xs-8 offset-xs-2">
+            <img class="img-responsive loading-screen-image" src="../../../assets/enginizer-logo.png"/>
+          </div>
+          <div class="col-md-2 offset-md-6 col-xs-2 offset-xs-6" style="text-align: center;">
+            <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</enginizer-root>
+</body>
+
+
+<!-- SCRIPTS -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+<script src="assets/owlcarousel/owl.carousel.min.js"/>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDLrH7zfKJJLamgTiFJuZ1XALVz2LqAmV0",
+    authDomain: "pocket-enginizer.firebaseapp.com",
+    databaseURL: "https://pocket-enginizer.firebaseio.com",
+    storageBucket: "pocket-enginizer.appspot.com",
+    messagingSenderId: "1025859429664"
+  };
+  firebase.initializeApp(config);
+</script>
+<!--<script src="https://code.angularjs.org/tools/system.js">-->
+  <!--// Get the locale id somehow-->
+  <!--document.locale = 'ro';-->
+
+  <!--// Map to the text plugin-->
+  <!--System.config({-->
+    <!--map: {-->
+      <!--text: 'systemjs-text-plugin.js'-->
+    <!--}-->
+  <!--});-->
+
+  <!--// Launch the app-->
+  <!--System.import('main.js').catch(function(err){ console.error(err); });-->
+<!--</script>-->
+<script>
+  $(document).ready(function () {
+    $(".button-collapse").sideNav({closeOnClick: true});
+    $(".modal").modal();
+    $('.materialboxed').materialbox();
+    $('.slider').slider();
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
+    $('.collapsible-query').collapsible();
+  });
+</script>
+</html>

@@ -1,0 +1,48 @@
+<div class="create-update-doctor">
+  <div class="col-md-12 col-xs-12">
+    <form id="doctorForm" name="form" #createDoctor="ngForm" (ngSubmit)="createDoctor.form.valid && confirmationMatches() && createOrUpdateDoctor()"
+          novalidate>
+      <div class="col-md-10 offset-md-1">
+        <div class="form-group">
+          <input type="hidden" [(ngModel)]="model.id" name="id"/>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': !email.pristine && !email.valid }">
+          <input type="text" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" placeholder="Email" class="form-control enginizer-input" name="email" [(ngModel)]="model.email" #email="ngModel" required/>
+          <div *ngIf="!email.pristine && !email.valid" class="help-block">Adresa de email este invalida</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': !fullName.pristine && !fullName.valid }">
+          <input type="text" placeholder="Nume si Prenume" class="form-control enginizer-input" name="fullName"
+                 [(ngModel)]="model.fullName" #fullName="ngModel" required/>
+          <div *ngIf="!fullName.pristine && !fullName.valid" class="help-block">Numele complet este obligatoriu</div>
+        </div>
+        <div *ngIf="idAddMode == true"  class="form-group" [ngClass]="{ 'has-error': !password.pristine && !password.valid }">
+          <input type="password" placeholder="Parola" class="form-control enginizer-input" name="password"
+                 [(ngModel)]="model.password" #password="ngModel" required/>
+          <div *ngIf="!password.pristine && !password.valid" class="help-block">Parola este obligatorie</div>
+        </div>
+        <div *ngIf="idAddMode == true" class="form-group" [ngClass]="{ 'has-error': !passwordConfirmation.pristine && !passwordConfirmation.valid }">
+          <input type="password" placeholder="Confirma Parola" class="form-control enginizer-input"
+                 name="passwordConfirmation" [(ngModel)]="model.passwordConfirmation"
+                 #passwordConfirmation="ngModel" required/>
+          <div *ngIf="!passwordConfirmation.pristine && !passwordConfirmation.valid" class="help-block">Confirmarea parolei este obligatorie
+          </div>
+          <div *ngIf="!isPasswordSameAsConfirmation" class="help-block">Confirmarea parolei este diferita de parola introdusa
+          </div>
+        </div>
+        <div [hidden]="idAddMode == true" class="form-group">
+          <div class="switch">
+            <label class="checkbox"> Inactiv <input type="checkbox"  name="enabled" [(ngModel)]="model.enabled" > <span class="lever"></span> Activ </label>
+          </div>
+        </div>
+        <div class="form-group offset-md-5">
+          <img *ngIf="loading"
+               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+        </div>
+      </div>
+        <div class="form-group group-btn col-md-12 col-sm-12 offset-md-1">
+            <button [disabled]="!createDoctor.form.valid || loading" class="btn col-md-5 col-sm-5 create-update-doctor-btn">Salveaza</button>
+            <a [class.disabled]="loading" (click)="closeModal()" class="btn btn-alert col-md-5 col-sm-5 create-update-doctor-btn">Anuleaza</a>
+        </div>
+    </form>
+  </div>
+</div>

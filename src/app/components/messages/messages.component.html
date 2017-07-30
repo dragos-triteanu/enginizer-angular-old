@@ -1,0 +1,11 @@
+<ol class="discussion">
+  <li *ngFor="let message of messages;let i = index;" [ngClass]="{other: isIncomingMessage(message),self: isOutgoingMessage(message)}">
+    <div class="avatar">
+      <img [src]="computeAvatar(message)" />
+    </div>
+    <div class="messages">
+      <p>{{message.text}}</p>
+      <time datetime="2009-11-13T20:00">{{message.from.fullName}} • 51 min</time>
+    </div>
+  </li>
+</ol>

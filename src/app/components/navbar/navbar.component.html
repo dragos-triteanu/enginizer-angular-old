@@ -1,0 +1,54 @@
+<nav class="main-nav" *ngIf="isNotActive('/change-password')" >
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">
+      <img src="../../../assets/enginizer-logo.png">
+    </a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons" style="color: black">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/faq']" class="nav-link">FAQ</a>
+      </li>
+      <li *ngIf="isDoctorLoggedIn()" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/cases']" class="nav-link">Cazuri</a>
+      </li>
+      <li *ngIf="isAdminLoggedIn()" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/doctors']" class="nav-link">Doctori</a>
+      </li>
+      <li class="nav-item" class="enginizer-nav-control" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" *ngIf="!isLoggedIn();" [routerLink]="['/login']">Login</a>
+        <enginizer-dropdown (logout)="logout()" [routerLinkActive]="['active']" *ngIf="isLoggedIn();"></enginizer-dropdown>
+      </li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/faq']" class="nav-link">FAQ</a>
+      </li>
+      <li *ngIf="isDoctorLoggedIn()" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/cases']" class="nav-link">Cazuri</a>
+      </li>
+      <li *ngIf="isAdminLoggedIn()" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/doctors']" class="nav-link">Doctori</a>
+      </li>
+      <li class="nav-item" class="enginizer-nav-control">
+        <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!isLoggedIn();" >Login</a>
+        <a class="nav-link" (click)="logout()" [routerLinkActive]="['active']" *ngIf="isLoggedIn();">Logout</a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="isActive('/cazuri')">
+    <div class="nav-content" >
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a [class.active]="'in_progress' == selectedTab" (click)="onSelect('in_progress')">Active</a></li>
+        <li class="tab"><a [class.active]="'DONE' == selectedTab" (click)="onSelect('DONE')">Finalizate</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
