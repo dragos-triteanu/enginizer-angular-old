@@ -5,8 +5,15 @@
     </a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons" style="color: black">menu</i></a>
     <ul class="right hide-on-med-and-down">
+      <li class="language-switch">
+        <span style="margin-right: 1rem">{{ 'home.language' | translate }}</span>
+        <select #langSelect (change)="translate.use(langSelect.value)" style="display: inline;margin-top: 8%;color:black;">
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+                  [selected]="lang === translate.currentLang">{{ lang | uppercase }}</option>
+        </select>
+      </li>
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a [routerLink]="['/faq']" class="nav-link">FAQ</a>
+        <a [routerLink]="['/home']" class="nav-link">Home</a>
       </li>
       <li *ngIf="isDoctorLoggedIn()" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <a [routerLink]="['/cases']" class="nav-link">Cazuri</a>
@@ -21,7 +28,7 @@
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a [routerLink]="['/faq']" class="nav-link">FAQ</a>
+        <a [routerLink]="['/home']" class="nav-link">FAQ</a>
       </li>
       <li *ngIf="isDoctorLoggedIn()" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <a [routerLink]="['/cases']" class="nav-link">Cazuri</a>
@@ -44,11 +51,3 @@
     </div>
   </div>
 </nav>
-
-
-
-
-
-
-
-

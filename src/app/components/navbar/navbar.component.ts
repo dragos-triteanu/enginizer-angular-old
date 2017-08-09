@@ -3,6 +3,7 @@ import {AuthenticationService} from "../../services/authentication.service";
 import {Router} from "@angular/router";
 import {CasesService} from "../../services/cases.service";
 import {Subscription} from "rxjs";
+import {TranslateService} from "@ngx-translate/core";
 
 declare var jQuery:any;
 
@@ -20,7 +21,7 @@ export class NavbarComponent {
 
   subscription:Subscription;
 
-  constructor(private authService:AuthenticationService, private router:Router, private caseService:CasesService) {
+  constructor(private authService:AuthenticationService, private router:Router, private caseService:CasesService, public translate: TranslateService) {
   }
 
   isLoggedIn() {

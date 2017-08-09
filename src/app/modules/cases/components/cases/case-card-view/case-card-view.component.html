@@ -1,0 +1,23 @@
+  <!--<h2 class="header">Horizontal Card</h2>-->
+  <div class="card medium caseCard" style="width: 100%">
+    <div class="card-image">
+      <img *ngIf="case?.fileUrls && case.fileUrls?.length > 0" src="{{case.fileUrls[0]}}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <div class="row enginizer-timer-row" *ngIf="isDoctorLoggedIn()">
+          <enginizer-countdown-timer *ngIf="case?.hoursRemaining" class="enginizer-timer" [hoursRemaining]="case.hoursRemaining"></enginizer-countdown-timer>
+        </div>
+        <div class="row">
+            <p class="case-status">Caz #{{case.id}}</p>
+        </div>
+        <div class="row descriptionContainer">
+            <span class="truncate">{{case.mainSymptoms}}</span>
+        </div>
+      </div>
+      <div class="card-action">
+        <a [routerLink]="['/cases']"  [queryParams]="{'id': case.id}" class="vcenter">Details</a>
+        <a *ngIf="shouldRenderDelete()" class="delete-link" [class.delete-disabled]="isAdmin" (click)="deleteCard();"><i class="small material-icons right-align delete-icon">delete</i></a>
+      </div>
+    </div>
+  </div>

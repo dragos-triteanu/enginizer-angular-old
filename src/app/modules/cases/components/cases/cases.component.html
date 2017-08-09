@@ -1,0 +1,51 @@
+<enginizer-loading *ngIf="loading"></enginizer-loading>
+<div *ngIf="loading == false" class="jumbotron">
+  <div class="container">
+    <div class="fixed-action-btn horizontal" *ngIf="shouldRenderFab">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">add</i>
+      </a>
+    </div>
+    <br/>
+    <h2 style="text-align: center"></h2>
+    <div class="container-fluid">
+      <div class="col-md-12">
+        <ul class="caseList">
+          <h3 *ngIf="cases.length==0" style="text-align: center">Nu exista cazuri definite inca</h3>
+          <div class="row">
+              <li class="col-md-4" *ngFor="let case of cases | byCaseStatusPipe:tabSelected;let i = index;" >
+                <enginizer-case-card-view [case]="case" (deleteCase)="deleteCase($event)"></enginizer-case-card-view>
+              </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<!--<div id="createCaseModal" class="modal modal-fixed-footer create-case-modal">-->
+  <!--<div class="modal-content create-case-modal-content">-->
+    <!--<h3 style="text-align: center">Creaza un caz nou</h3>-->
+    <!--<enginizer-create-case (createdNewCase)="addNewCaseToList($event)"></enginizer-create-case>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div id="deleteCaseModal" class="modal delete-case-modal">
+  <div class="modal-content delete-case-modal-content">
+    <h4>Va rugam sa confirmati</h4>
+    <p>Sunteti sigur ca doriti sa stergeti cazul?</p>
+    <div class="container buttonContainer">
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <button class="btn btn-primary btn-block" (click)="performCaseDelete(false)">Nu</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <button class="btn btn-danger btn-block" (click)="performCaseDelete(true)">Da</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
