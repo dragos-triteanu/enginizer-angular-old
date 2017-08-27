@@ -41,7 +41,7 @@ export class ChangePasswordComponent implements OnInit {
     this.loading = true;
     this.recoveryService.changePassword(this.model, this.token)
       .then( function (tokenResponse) {
-        THIS.router.navigate(['faq']);
+        THIS.router.navigate(['home']);
         THIS.authenticationService.setToken(tokenResponse);
       }).catch(function (error) {
       THIS.alertService.error(error);

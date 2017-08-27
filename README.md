@@ -30,6 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## i18n
 Run `ng xi18n --output-path src/locale` to generate i18n messages files.
 
-## Testing i18n
-Run `ng serve --aot --locale ro --i18n-format xlf --i18n-file src/locale/messages.ro.xlf`
+## Testing i18n.
+This is practically angular's way of i18n but ngx-translate seems a better fit.
+Run `ng serve --aot --locale ro --i18n-format xlf --i18n-file src/assets/locale/messages.ro.xlf`
 
