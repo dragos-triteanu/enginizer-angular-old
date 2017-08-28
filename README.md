@@ -34,3 +34,14 @@ Run `ng xi18n --output-path src/locale` to generate i18n messages files.
 This is practically angular's way of i18n but ngx-translate seems a better fit.
 Run `ng serve --aot --locale ro --i18n-format xlf --i18n-file src/assets/locale/messages.ro.xlf`
 
+## Finding outdated packaged
+`npm outdated`
+
+## To update all packages
+`npm i -g npm-check-updates`
+`npm-check-updates -u`
+`npm install`
+
+
+
+
