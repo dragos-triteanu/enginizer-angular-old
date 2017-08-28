@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
 import {Route, Router} from "@angular/router";
-import {AlertService} from "../../../services/alert.service";
-import {RecoveryService} from "../../../services/recovery.service";
+import {AlertService} from "../../../../services/alert.service";
+import {RecoveryService} from "../../../../services/recovery.service";
 
 @Component({
   selector: 'enginizer-forgot-password',

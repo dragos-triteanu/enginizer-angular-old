@@ -1,5 +1,5 @@
 .jumbotron.login-jumbo {
-  background: rgba(255, 255, 255, 0.6) url("../../../../assets/login-background.jpg") no-repeat fixed center center;
+  background: rgba(255, 255, 255, 0.6) url("../../../../../assets/login-background.jpg") no-repeat fixed center center;
   background-blend-mode: lighten;
   -webkit-background-size: cover;
   -moz-background-size: cover;

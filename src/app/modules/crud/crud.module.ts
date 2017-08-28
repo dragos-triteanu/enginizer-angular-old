@@ -1,20 +1,20 @@
 import {NgModule} from "@angular/core";
-import {DoctorsComponent} from "./doctors.component";
 import {CreateDoctorComponent} from "./create-doctor/create-doctor.component";
-import {DoctorService} from "./services/doctor.service";
 import {CommonModule} from "@angular/common";
 import {SharedModule} from "../shared/shared.module";
 import {AutoCompleteModule, DataTableModule, DialogModule, FileUploadModule} from "primeng/primeng";
 import {FormsModule} from "@angular/forms";
-import {DoctorsRoutingModule} from "./doctors.routing";
+import {CrudComponent} from "./pages/crud.component";
+import {CrudRoutingModule} from "./crud.routing";
+import {CrudService} from "./services/crud.service";
 
 @NgModule({
   declarations: [
-    DoctorsComponent,
+    CrudComponent,
     CreateDoctorComponent,
   ],
   providers: [
-    DoctorService
+    CrudService
   ],
   imports:[
     CommonModule,
@@ -24,9 +24,9 @@ import {DoctorsRoutingModule} from "./doctors.routing";
     DialogModule,
     FileUploadModule,
     FormsModule,
-    DoctorsRoutingModule
+    CrudRoutingModule
   ]
 })
-export class DoctorsModule {
+export class CrudModule {
 
 }

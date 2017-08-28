@@ -1,8 +1,8 @@
 import {Component, OnInit, AfterViewChecked} from "@angular/core";
 import {Subscription} from "rxjs";
-import {Case} from "../../../../models/case";
-import {CasesService} from "../../../../services/cases.service";
-import {AuthenticationService} from "../../../../services/authentication.service";
+import {Case} from "../../../models/case";
+import {AuthenticationService} from "../../auth/services/authentication.service";
+import {CasesService} from "../services/cases.service";
 
 declare var jQuery: any;
 

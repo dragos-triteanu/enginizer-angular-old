@@ -7,7 +7,6 @@ import {MockBackend} from "@angular/http/testing";
 import {AlertService, AuthenticationService, UserService} from "./services";
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {routing} from "./app.routing";
-import {CasesService} from "./services/cases.service";
 import {RecoveryService} from "./services/recovery.service";
 import {AuthConfig, AuthHttp, JwtHelper} from "angular2-jwt";
 import {DroptdownComponent} from "./components/navbar/dropdown/droptdown.component";
@@ -15,15 +14,16 @@ import {AutoCompleteModule, DataTableModule, DialogModule, FileUploadModule} fro
 import {GalleryComponent} from "./components/gallery/gallery.component";
 import {MessagesComponent} from "./components/messages/messages.component";
 import {fakeBackendProvider} from "./mock/fake-backend";
-import {AuthenticatedHttpService} from "./services/authenticatedHttp.service";
-import {DoctorsModule} from "./modules/doctors/doctors.module";
+import {AuthenticatedHttpService} from "./modules/auth/services/authenticatedHttp.service";
 import {SharedModule} from "./modules/shared/shared.module";
 import {AuthModule} from "./modules/auth/auth.module";
 import {CasesModule} from "./modules/cases/cases.module";
-import {HomeComponent} from "./components/home/home.component";
+import {HomeComponent} from "./pages/home/home.component";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {CrudModule} from "./modules/crud/crud.module";
+import {CasesService} from "./modules/cases/services/cases.service";
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -56,7 +56,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     }),
     SharedModule,
-    DoctorsModule,
+    CrudModule,
     routing,
     FileUploadModule,
     AuthModule,

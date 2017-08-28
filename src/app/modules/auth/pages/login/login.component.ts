@@ -1,7 +1,7 @@
 ﻿import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 
-import {AlertService, AuthenticationService} from '../../../services';
+import {AlertService, AuthenticationService} from '../../../../services';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -35,12 +35,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.model)
       .then(function (data) {
         THIS.authenticationService.setToken(data);
-
-        if (THIS.authenticationService.getCurrentUser().role === "ADMIN") {
-          THIS.router.navigate(['doctors']);
-        } else {
-          THIS.router.navigate(['cases']);
-        }
+        THIS.router.navigate(['home']);
       }).catch(function (error) {
       THIS.alertService.error(error);
       THIS.loading = false;

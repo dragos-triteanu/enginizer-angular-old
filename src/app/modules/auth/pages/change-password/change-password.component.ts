@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
-import {RecoveryService} from "../../../services/recovery.service";
-import {AuthenticationService} from "../../../services/authentication.service";
-import {AlertService} from "../../../services/alert.service";
+import {RecoveryService} from "../../../../services/recovery.service";
+import {AuthenticationService} from "../../services/authentication.service";
+import {AlertService} from "../../../../services/alert.service";
 
 @Component({
   selector: 'enginizer-change-password',

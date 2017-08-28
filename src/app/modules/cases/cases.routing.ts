@@ -1,10 +1,10 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {ProtectedComponent} from "./components/cases/cases.component";
+import {ProtectedComponent} from "./pages/cases.component";
 import {AuthGuard} from "../shared/guards/auth.guard";
 
 const appRoutes:Routes = [
-  {path: 'cases', component: ProtectedComponent, canActivate: [AuthGuard]}
+  {path: '', component: ProtectedComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

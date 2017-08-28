@@ -1,8 +1,8 @@
 ﻿import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 
-import {AlertService, UserService} from '../../../services/index';
-import {AuthenticationService} from "../../../services/authentication.service";
+import {AlertService, UserService} from '../../../../services/index';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: "enginizer-register",

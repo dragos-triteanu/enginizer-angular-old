@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {Router} from "@angular/router";
-import {AlertService} from "./alert.service";
+import {AlertService} from "../../../services/alert.service";
 
 
 @Injectable()

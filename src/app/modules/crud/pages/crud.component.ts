@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../../models/user";
-import {DoctorService} from "./services/doctor.service";
+import {User} from "../../../models/user";
+import {CrudService} from "../services/crud.service";
 
 declare var jQuery:any;
 
 @Component({
   selector: 'enginizer-doctors',
-  templateUrl: 'doctors.component.html',
-  styleUrls: ['doctors.component.scss']
+  templateUrl: 'crud.component.html',
+  styleUrls: ['crud.component.scss']
 })
-export class DoctorsComponent implements OnInit {
+export class CrudComponent implements OnInit {
 
   doctors:User[];
 
   loading = false;
 
-  constructor(private doctorService:DoctorService) {
+  constructor(private doctorService:CrudService) {
   }
 
 

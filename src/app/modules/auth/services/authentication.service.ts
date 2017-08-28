@@ -1,10 +1,10 @@
 ﻿import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map'
-import {User} from "../models/user";
-import {Token} from "../models/token";
+import {User} from "../../../models/user";
+import {Token} from "../../../models/token";
 import {JwtHelper} from "angular2-jwt"
-import {environment} from "../../environments/environment";
+import {environment} from "../../../../environments/environment";
 
 @Injectable()
 export class AuthenticationService {

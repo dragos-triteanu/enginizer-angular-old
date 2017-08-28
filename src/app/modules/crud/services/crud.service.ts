@@ -6,7 +6,7 @@ import {AuthHttp} from 'angular2-jwt';
 import {environment} from "../../../../environments/environment";
 
 @Injectable()
-export class DoctorService {
+export class CrudService {
 
   doctorAction = new Subject<string>();
   doctorActionAsObservable = this.doctorAction.asObservable();

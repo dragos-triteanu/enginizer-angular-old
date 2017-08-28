@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from "@angular/core";
-import {DoctorService} from "../services/doctor.service";
+import {CrudService} from "../services/crud.service";
 import {Subscription} from "rxjs";
 import {User} from "../../../models/user";
 import {UserService} from "../../../services/user.service";
@@ -26,7 +26,7 @@ export class CreateDoctorComponent implements OnInit {
   @Output()
   createdOrUpdatedDoctor:EventEmitter<any> = new EventEmitter();
 
-  constructor(private doctorService:DoctorService, private userService : UserService, private alertService: AlertService) {
+  constructor(private doctorService:CrudService, private userService : UserService, private alertService: AlertService) {
     this.subscription = doctorService.doctorActionAsObservable.subscribe(op => {
       this.idAddMode = op == "add";
     });

@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Message} from "../../models/message";
-import {AuthenticationService} from "../../services/authentication.service";
+import {AuthenticationService} from "../../modules/auth/services/authentication.service";
 import {environment} from "../../../environments/environment";
 
 @Component({

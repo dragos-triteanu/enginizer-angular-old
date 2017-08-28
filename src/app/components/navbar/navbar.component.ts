@@ -1,9 +1,9 @@
 import {Component, Input} from "@angular/core";
-import {AuthenticationService} from "../../services/authentication.service";
+import {AuthenticationService} from "../../modules/auth/services/authentication.service";
 import {Router} from "@angular/router";
-import {CasesService} from "../../services/cases.service";
 import {Subscription} from "rxjs";
 import {TranslateService} from "@ngx-translate/core";
+import {CasesService} from "../../modules/cases/services/cases.service";
 
 declare var jQuery:any;
 

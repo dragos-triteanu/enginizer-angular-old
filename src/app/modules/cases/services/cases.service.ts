@@ -1,14 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Response, ResponseContentType} from '@angular/http';
+import {Response} from '@angular/http';
 import 'rxjs/add/operator/map'
-import {Case} from '../models/case';
 import {Subject} from "rxjs";
 import {AuthHttp} from 'angular2-jwt';
-import {Message} from "../models/message";
-import {User} from "../models/user";
 import {Router} from "@angular/router";
-import {Patient} from "../models/patient";
-import {environment} from "../../environments/environment";
+import {Case} from "../../../models/case";
+import {environment} from "../../../../environments/environment";
+import {Message} from "../../../models/message";
 
 declare var jQuery:any;
 
@@ -51,30 +49,30 @@ export class CasesService {
 
   getAllCases() {
     return this.authHttp.get(environment.hostUrl + "/api/case")
-      .map((response:Response) => {
-        return response.json().map((enginizerCase) => {
-          return this.mapenginizerCase(enginizerCase);
-        });
-      })
-      .toPromise();
+    .map((response:Response) => {
+      return response.json().map((enginizerCase) => {
+        return this.mapenginizerCase(enginizerCase);
+      });
+    })
+    .toPromise();
   }
 
   getCaseById(caseId:string) {
     return this.authHttp.get(environment.hostUrl + "/api/case?id=" + caseId)
-      .map((response:Response) => {
-        let enginizerCase = response.json()[0];
-        return this.mapenginizerCase(enginizerCase);
-      })
-      .toPromise();
+    .map((response:Response) => {
+      let enginizerCase = response.json()[0];
+      return this.mapenginizerCase(enginizerCase);
+    })
+    .toPromise();
   }
 
   sendMessage(selectedCase:Case, message:Message, shouldAddMoreImages:boolean) {
     message.dateSent = new Date();
     return this.authHttp.put(environment.hostUrl + "/api/case/message?caseId=" + selectedCase.id, message)
-      .map((response:Response) => {
-        let asJson = response.json();
-        return asJson.id;
-      }).toPromise();
+    .map((response:Response) => {
+      let asJson = response.json();
+      return asJson.id;
+    }).toPromise();
   }
 
   sendFinalAdvice(selectedCase:Case) {
@@ -85,7 +83,7 @@ export class CasesService {
 
   deleteCase(toDeleteCase:Case) {
     return this.authHttp.delete(environment.hostUrl + "/api/case/delete?id=" + toDeleteCase.id)
-      .toPromise();
+    .toPromise();
   }
 
   addPhotosToCase(selectedCase:Case) {
