@@ -1,7 +1,7 @@
-﻿import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+﻿import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import {AlertService, AuthenticationService} from '../../../../services';
+import { AlertService, AuthenticationService } from '../../../shared/services';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -11,14 +11,14 @@ import 'rxjs/add/operator/toPromise';
 })
 
 export class LoginComponent implements OnInit {
-  model:any = {};
+  model: any = {};
   loading = false;
-  returnUrl:string;
+  returnUrl: string;
 
-  constructor(private route:ActivatedRoute,
-              private router:Router,
-              private authenticationService:AuthenticationService,
-              private alertService:AlertService) {
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private authenticationService: AuthenticationService,
+              private alertService: AlertService) {
   }
 
   ngOnInit() {
@@ -30,17 +30,17 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    var THIS = this;
-    this.loading = true;
-    this.authenticationService.login(this.model)
-      .then(function (data) {
-        THIS.authenticationService.setToken(data);
-        THIS.router.navigate(['home']);
-      }).catch(function (error) {
-      THIS.alertService.error(error);
-      THIS.loading = false;
-    });
+    this.authenticationService.login(this.model).subscribe(
+      (data: any) => {
+        console.log("Login form", data);
+        this.authenticationService.setToken(data.token);
+        this.router.navigate(['home']);
+      },
+      (error: any) => {
+        this.alertService.error(error);
+        this.loading = false;
+      }
+    );
   }
-
 
 }

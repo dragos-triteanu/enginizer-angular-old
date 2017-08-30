@@ -1,22 +1,19 @@
 ﻿import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map'
-import {User} from "../../../models/user";
-import {Token} from "../../../models/token";
 import {JwtHelper} from "angular2-jwt"
 import {environment} from "../../../../environments/environment";
+import { User } from '../../shared/models/user.model';
+import { Token } from '../../shared/models/token.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthenticationService {
 
-  constructor(private http:Http, private jwtHelper:JwtHelper) {
+  constructor(private http:HttpClient, private jwtHelper:JwtHelper) {
   }
 
   login(user:User) {
-
-    return this.http.post(environment.hostUrl + "/api/login", user)
-      .map((response:Response) => response.json())
-      .toPromise();
+    return this.http.post(environment.hostUrl + "/api/login", user);
   }
 
   signUpUser(user:User) {
@@ -44,9 +41,9 @@ export class AuthenticationService {
     return localStorage.getItem("current_user") != null && JSON.parse(localStorage.getItem("current_user")).role === role;
   }
 
-  setToken(token:Token) {
+  setToken(token:any) {
     localStorage.setItem("user_token", token.token);
-    let currentUser = JSON.stringify(this.jwtHelper.decodeToken(token.token));
+    let currentUser = JSON.stringify(this.jwtHelper.decodeToken(token));
 
     localStorage.setItem("current_user", currentUser);
   }

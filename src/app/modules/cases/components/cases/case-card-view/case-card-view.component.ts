@@ -1,8 +1,8 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {Case} from "../../../../../models/case";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../../../auth/services/authentication.service";
 import {CasesService} from "../../../services/cases.service";
+import { Case } from '../../../../shared/models/case.model';
 
 
 @Component({

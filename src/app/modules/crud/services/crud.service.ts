@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Response} from '@angular/http';
-import {Subject} from "rxjs";
-import {User} from '../../../models/user';
-import {AuthHttp} from 'angular2-jwt';
-import {environment} from "../../../../environments/environment";
+import { Injectable } from '@angular/core';
+import { Response } from '@angular/http';
+import { Subject } from "rxjs";
+import { environment } from "../../../../environments/environment";
+import { HttpClient } from '@angular/common/http';
+import { User } from '../../shared/models/user.model';
 
 @Injectable()
 export class CrudService {
@@ -14,7 +14,7 @@ export class CrudService {
   selectedDoctor = new Subject<User>();
   selectedDoctorAsObservable = this.selectedDoctor.asObservable();
 
-  constructor(private authHttp:AuthHttp){}
+  constructor(private authHttp:HttpClient){}
 
   announceDoctorAction(string) {
     this.doctorAction.next(string);
@@ -25,19 +25,7 @@ export class CrudService {
   }
 
   getAllDoctors(){
-    return this.authHttp.get(environment.hostUrl + "/api/user?role=DOCTOR")
-      .map((response:Response) => {
-        return response.json().map((response) => {
-          let doctor = new User();
-          doctor.id=response.id;
-          doctor.email=response.email;
-          doctor.fullName=response.fullName;
-          doctor.nrOfCases=response.nrOfCases;
-          doctor.enabled=response.enabled;
-          return doctor;
-        });
-      })
-      .toPromise();
+    return this.authHttp.get<User[]>(environment.hostUrl + "/api/user?role=DOCTOR");
   }
 
   assignDoctor(doctor, caseId){

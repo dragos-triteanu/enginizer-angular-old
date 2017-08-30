@@ -1,38 +1,27 @@
-import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
-import {FormsModule} from "@angular/forms";
-import {BaseRequestOptions, Http, HttpModule, RequestOptions} from "@angular/http";
-import {AppComponent} from "./app.component";
-import {MockBackend} from "@angular/http/testing";
-import {AlertService, AuthenticationService, UserService} from "./services";
-import {NavbarComponent} from "./components/navbar/navbar.component";
-import {routing} from "./app.routing";
-import {RecoveryService} from "./services/recovery.service";
-import {AuthConfig, AuthHttp, JwtHelper} from "angular2-jwt";
-import {DroptdownComponent} from "./components/navbar/dropdown/droptdown.component";
-import {AutoCompleteModule, DataTableModule, DialogModule, FileUploadModule} from "primeng/primeng";
-import {GalleryComponent} from "./components/gallery/gallery.component";
-import {MessagesComponent} from "./components/messages/messages.component";
-import {fakeBackendProvider} from "./mock/fake-backend";
-import {AuthenticatedHttpService} from "./modules/auth/services/authenticatedHttp.service";
-import {SharedModule} from "./modules/shared/shared.module";
-import {AuthModule} from "./modules/auth/auth.module";
-import {CasesModule} from "./modules/cases/cases.module";
-import {HomeComponent} from "./pages/home/home.component";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
+import { AppComponent } from "./app.component";
+import { AlertService, AuthenticationService, UserService } from "./modules/shared/services";
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { routing } from "./app.routing";
+import { RecoveryService } from "./modules/shared/services/recovery.service";
+import { JwtHelper } from "angular2-jwt";
+import { DroptdownComponent } from "./components/navbar/dropdown/droptdown.component";
+import { AutoCompleteModule, DataTableModule, DialogModule, FileUploadModule } from "primeng/primeng";
+import { GalleryComponent } from "./components/gallery/gallery.component";
+import { MessagesComponent } from "./components/messages/messages.component";
+import { SharedModule } from "./modules/shared/shared.module";
+import { AuthModule } from "./modules/auth/auth.module";
+import { CasesModule } from "./modules/cases/cases.module";
+import { HomeComponent } from "./pages/home/home.component";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import {CrudModule} from "./modules/crud/crud.module";
-import {CasesService} from "./modules/cases/services/cases.service";
+import { CrudModule } from "./modules/crud/crud.module";
+import { CasesService } from "./modules/cases/services/cases.service";
 
-
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp( new AuthConfig({ headerName: 'Authorization', 
-                                        headerPrefix:'Bearer ', 
-                                        tokenName: 'user_token', 
-                                        tokenGetter: (() => localStorage.getItem('user_token')), 
-                                        noJwtError: true}), http, options);
-}
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -60,7 +49,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     routing,
     FileUploadModule,
     AuthModule,
-    CasesModule
+    CasesModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -76,18 +66,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     UserService,
     CasesService,
     RecoveryService,
-    {
-      provide: AuthHttp,
-      useFactory: authHttpServiceFactory,
-      deps: [ Http, RequestOptions ]
-    },
-
-    JwtHelper,
-    { provide: Http, useClass: AuthenticatedHttpService },
-    // providers used to create fake backend
-    fakeBackendProvider,
-    MockBackend,
-    BaseRequestOptions
+    JwtHelper
   ],
   bootstrap: [AppComponent]
 })

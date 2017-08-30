@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {Message} from "../../models/message";
 import {AuthenticationService} from "../../modules/auth/services/authentication.service";
 import {environment} from "../../../environments/environment";
+import { Message } from '../../modules/shared/models/message.model';
 
 @Component({
   selector: 'enginizer-messages',

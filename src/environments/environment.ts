@@ -11,5 +11,6 @@ export const environment = {
   doctorAvatar: "https://maxcdn.icons8.com/Share/icon/Healthcare//medical_doctor1600.png",
   userAvatar: "https://www.shareicon.net/data/512x512/2015/12/06/683349_users_512x512.png",
   loginErrorMessage: "Numele utilizator sau parola incorecte",
-  duplicateRegistration: "Utilizator cu acest mail exista deja!"
+  duplicateRegistration: "Utilizator cu acest mail exista deja!",
+  useFakeBackend: true
 };

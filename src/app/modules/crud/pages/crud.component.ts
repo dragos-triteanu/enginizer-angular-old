@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {User} from "../../../models/user";
-import {CrudService} from "../services/crud.service";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { CrudService } from "../services/crud.service";
+import { User } from '../../shared/models/user.model';
 
-declare var jQuery:any;
+declare var jQuery: any;
 
 @Component({
   selector: 'enginizer-doctors',
@@ -11,25 +11,24 @@ declare var jQuery:any;
 })
 export class CrudComponent implements OnInit {
 
-  doctors:User[];
+  doctors: User[];
 
   loading = false;
 
-  constructor(private doctorService:CrudService) {
+  constructor(private doctorService: CrudService) {
   }
 
-
   ngOnInit() {
-    var THIS = this;
     this.loading = true;
     this.doctors = []
-    this.doctorService.getAllDoctors()
-      .then(function (data) {
-        THIS.doctors = data.slice();
-        THIS.loading = false;
-      }).catch(function (error) {
-      console.log(error);
-    });
+    this.doctorService.getAllDoctors().subscribe(
+      (data) => {
+        this.doctors = data;
+        this.loading = false;
+      },
+      (error) => {
+        console.log(error);
+      })
   }
 
   onRowSelect(event) {
@@ -43,17 +42,19 @@ export class CrudComponent implements OnInit {
     this.openCreateDoctorModal();
   }
 
-
   addOrUpdateDoctor(event) {
-    let doctor = this.doctors.filter(item=>item.id == event.id)[0];
+    if (event) {
 
-    if (doctor == undefined || doctor == null) {
-      doctor = new Doctor(event.id, event.fullName, event.email, 0, true, null, null, "DOCTOR");
-      this.doctors.push(doctor);
-    } else {
-      doctor.fullName = event.fullName;
-      doctor.email = event.email;
-      doctor.enabled = event.enabled;
+      if (this.doctors.some(value => value.id === event.id)) {
+        let duplicateUser = this.doctors.filter(doc => {
+          return doc.id === event.id;
+        })[0];
+        let index = this.doctors.indexOf(duplicateUser);
+        this.doctors[index] = event;
+
+      } else {
+        this.doctors = [...this.doctors, event];
+      }
     }
   }
 
@@ -72,7 +73,7 @@ export class CrudComponent implements OnInit {
     jQuery('.modal').modal();
   }
 
-  cloneDoctor(d:User):User {
+  cloneDoctor(d: User): User {
     let doctor = new User();
     for (let prop in d) {
       doctor[prop] = d[prop];
@@ -84,10 +85,3 @@ export class CrudComponent implements OnInit {
     return rowData.enabled ? '' : 'grayed-out';
   }
 }
-
-class Doctor implements User {
-  constructor(public id, public fullName, public email, public nrOfCases, public enabled, public password, public passwordConfirmation, public role) {
-  }
-}
-
-

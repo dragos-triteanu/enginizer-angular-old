@@ -1,8 +1,8 @@
-import {Component, OnInit, AfterViewChecked} from "@angular/core";
-import {Subscription} from "rxjs";
-import {Case} from "../../../models/case";
-import {AuthenticationService} from "../../auth/services/authentication.service";
-import {CasesService} from "../services/cases.service";
+import { Component, OnInit, AfterViewChecked } from "@angular/core";
+import { Subscription } from "rxjs";
+import { AuthenticationService } from "../../auth/services/authentication.service";
+import { CasesService } from "../services/cases.service";
+import { Case } from '../../shared/models/case.model';
 
 declare var jQuery: any;
 
@@ -27,7 +27,7 @@ export class ProtectedComponent implements OnInit, AfterViewChecked {
 
   shouldRenderFab = false;
 
-  constructor(private casesService: CasesService, private authenticationService : AuthenticationService) {
+  constructor(private casesService: CasesService, private authenticationService: AuthenticationService) {
     this.subscription = casesService.activeCaseStatusAsObservable.subscribe(selectedTab => {
       this.tabSelected = selectedTab;
       console.log("This tab is selected:" + selectedTab);
@@ -38,15 +38,17 @@ export class ProtectedComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
 
     var THIS = this;
-    this.loading=true;
-    this.cases =[]
-    this.casesService.getAllCases()
-                .then(function (data) {
-                      THIS.cases= data.slice();
-                      THIS.loading = false;
-                      }).catch(function (error) {
-                  console.log(error);
-                  });
+    this.loading = true;
+    this.cases = []
+    this.casesService.getAllCases().subscribe(
+      (data) => {
+        THIS.cases = data;
+        THIS.loading = false;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   openCreateCaseModal() {
@@ -84,7 +86,7 @@ export class ProtectedComponent implements OnInit, AfterViewChecked {
   performCaseDelete(shouldDeleteCase) {
     var THIS = this;
     if (shouldDeleteCase) {
-      THIS.casesService.deleteCase(this.toBeDeletedCase).then(function() {
+      THIS.casesService.deleteCase(this.toBeDeletedCase).then(function () {
         THIS.cases.forEach(function (item, index, arr) {
           if (item.id === THIS.toBeDeletedCase.id) {
             arr.splice(index, 1);
@@ -100,7 +102,7 @@ export class ProtectedComponent implements OnInit, AfterViewChecked {
     jQuery('#deleteCaseModal').modal('close');
   }
 
-  isTabSelected(someCase){
+  isTabSelected(someCase) {
     return someCase.status === this.tabSelected;
   }
 

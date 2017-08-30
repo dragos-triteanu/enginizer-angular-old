@@ -1,8 +1,9 @@
-import {User} from "./user";
-import {Patient} from "./patient";
 /**
  * Created by drago on 1/29/2017.
  */
+
+import { User } from './user.model';
+
 export class Case {
   id: number;
   mainSymptoms: string;
