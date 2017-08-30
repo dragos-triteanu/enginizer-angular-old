@@ -16,12 +16,16 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { CoreRouting } from './core.routing';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { CrudModule } from '../roles/crud/crud.module';
 import { CasesModule } from '../roles/cases/cases.module';
+import { AuthorizationHeaderInterceptor } from '../shared/interceptors/auth-header-interceptor';
+import { CasesMockInterceptor } from "../roles/cases/mock/cases.mock";
+import { AuthenticationInterceptor } from '../auth/mock/authentication.mock';
+import { CrudMockInterceptor } from '../roles/crud/mock/crud.mock';
 
 
 // AoT requires an exported function for factories
@@ -61,7 +65,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     UserService,
     CasesService,
     RecoveryService,
-    JwtHelper],
+    JwtHelper,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthorizationHeaderInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: CasesMockInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: CrudMockInterceptor, multi: true}
+  ],
   exports: [CoreComponent]
 })
 export class CoreModule {

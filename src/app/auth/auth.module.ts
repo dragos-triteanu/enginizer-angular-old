@@ -10,24 +10,12 @@ import { FormsModule } from "@angular/forms";
 import { ForgotPasswordComponent } from "./pages/forgot-password/forgot-password.component";
 import { ChangePasswordComponent } from "./pages/change-password/change-password.component";
 import { AuthenticationService } from "./services/authentication.service";
-import { environment } from '../../environments/environment';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthenticationInterceptor } from './mock/authentication.mock';
-
-// Providers used to create fake backend
-let mockProviders: any[] = [];
-
-if (environment.useFakeBackend) {
-  mockProviders = [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true }
-  ]
-}
 
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, ChangePasswordComponent],
   imports: [CommonModule, SharedModule, FormsModule, AuthRoutingModule],
-  providers: [AuthGuard, AdminGuard,AuthenticationService, mockProviders]
+  providers: [AuthGuard, AdminGuard,AuthenticationService]
 })
 export class AuthModule {
 

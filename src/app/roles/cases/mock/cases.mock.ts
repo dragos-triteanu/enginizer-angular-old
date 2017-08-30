@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import {
-  HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
   HttpResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../../../shared/models/user.model';
-import { RequestMethod } from '@angular/http';
 import { Case } from '../../../shared/models/case.model';
 
 
 @Injectable()
-export class CasesInterceptor implements HttpInterceptor {
+export class CasesMockInterceptor implements HttpInterceptor {
 
   constructor() {
   }
