@@ -1,13 +1,9 @@
 ﻿import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from "./pages/home/home.component";
+import {HomeComponent} from "./core/pages/home/home.component";
 
 const appRoutes:Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'cases', loadChildren: './modules/cases/cases.module#CasesModule'},
-  {path: 'crud', loadChildren: './modules/crud/crud.module#CrudModule'},
-
   // otherwise redirect to home
-  {path: '**', redirectTo: 'home'}
+  {path: '**', redirectTo: ''}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
