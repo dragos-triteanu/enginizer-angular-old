@@ -1,8 +1,8 @@
-﻿import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+﻿import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import {AlertService, UserService} from '../../../shared/services/index';
-import {AuthenticationService} from "../../services/authentication.service";
+import { AlertService } from '../../../shared/services/index';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: "enginizer-register",
@@ -42,7 +42,6 @@ export class RegisterComponent implements OnInit{
   }
 
   ngOnInit() {
-
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }

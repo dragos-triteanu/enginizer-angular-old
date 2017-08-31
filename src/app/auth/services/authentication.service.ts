@@ -1,9 +1,8 @@
-﻿import {Injectable} from '@angular/core';
-import 'rxjs/add/operator/map'
-import {JwtHelper} from "angular2-jwt"
-import {environment} from "../../../environments/environment";
+﻿import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
+import { JwtHelper } from 'angular2-jwt';
+import { environment } from '../../../environments/environment';
 import { User } from '../../shared/models/user.model';
-import { Token } from '../../shared/models/token.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()

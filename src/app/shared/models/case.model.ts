@@ -18,7 +18,7 @@ export class Case {
     this.mainSymptoms = mainSymptoms;
     this.fileUrls = filesUrls;
     this.doctor = doctor;
-    this.user = user
+    this.user = user;
     this.hoursRemaining = hoursRemaining;
     this.status = status;
   }

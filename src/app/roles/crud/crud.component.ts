@@ -20,7 +20,7 @@ export class CrudComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    this.doctors = []
+    this.doctors = [];
     this.doctorService.getAllDoctors().subscribe(
       (data) => {
         this.doctors = data;
@@ -33,7 +33,7 @@ export class CrudComponent implements OnInit {
 
   onRowSelect(event) {
     this.doctorService.announceDoctorAction("edit");
-    this.doctorService.sendSelectDoctor(this.cloneDoctor(event.data))
+    this.doctorService.sendSelectDoctor(this.cloneDoctor(event.data));
     this.openCreateDoctorModal();
   }
 

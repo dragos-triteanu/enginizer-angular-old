@@ -1,7 +1,7 @@
-import { Component, OnInit, AfterViewChecked } from "@angular/core";
-import { Subscription } from "rxjs";
-import { AuthenticationService } from "../../auth/services/authentication.service";
-import { CasesService } from "./services/cases.service";
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthenticationService } from '../../auth/services/authentication.service';
+import { CasesService } from './services/cases.service';
 import { Case } from '../../shared/models/case.model';
 
 declare var jQuery: any;
@@ -19,7 +19,7 @@ export class ProtectedComponent implements OnInit, AfterViewChecked {
 
   toBeDeletedCase: Case;
 
-  tabSelected: string = 'in_progress';
+  tabSelected = 'in_progress';
 
   subscription: Subscription;
 
@@ -30,20 +30,19 @@ export class ProtectedComponent implements OnInit, AfterViewChecked {
   constructor(private casesService: CasesService, private authenticationService: AuthenticationService) {
     this.subscription = casesService.activeCaseStatusAsObservable.subscribe(selectedTab => {
       this.tabSelected = selectedTab;
-      console.log("This tab is selected:" + selectedTab);
+      console.log('This tab is selected:' + selectedTab);
     });
-    this.shouldRenderFab = !(authenticationService.isUserWithRole("ADMIN") || authenticationService.isUserWithRole("DOCTOR"));
+    this.shouldRenderFab = !(authenticationService.isUserWithRole('ADMIN') || authenticationService.isUserWithRole('DOCTOR'));
   }
 
   ngOnInit() {
 
-    var THIS = this;
     this.loading = true;
-    this.cases = []
+    this.cases = [];
     this.casesService.getAllCases().subscribe(
       (data) => {
-        THIS.cases = data;
-        THIS.loading = false;
+        this.cases = data;
+        this.loading = false;
       },
       (error) => {
         console.log(error);
@@ -84,29 +83,21 @@ export class ProtectedComponent implements OnInit, AfterViewChecked {
   }
 
   performCaseDelete(shouldDeleteCase) {
-    var THIS = this;
     if (shouldDeleteCase) {
-      THIS.casesService.deleteCase(this.toBeDeletedCase).then(function () {
-        THIS.cases.forEach(function (item, index, arr) {
-          if (item.id === THIS.toBeDeletedCase.id) {
-            arr.splice(index, 1);
-          }
-        })
-      }).catch(function (error) {
-        console.log(error);
-      });
-    } else {
-      THIS.toBeDeletedCase = null;
+      this.casesService.deleteCase(this.toBeDeletedCase).subscribe(
+        (data) => {
+          const THIS = this;
+          this.cases.forEach(function (item, index, arr) {
+            if (item.id === THIS.toBeDeletedCase.id) {
+              arr.splice(index, 1);
+            }
+          });
+        }, (error) => {
+          console.log(error);
+        });
+
+      jQuery('#deleteCaseModal').modal('close');
     }
-
-    jQuery('#deleteCaseModal').modal('close');
   }
 
-  isTabSelected(someCase) {
-    return someCase.status === this.tabSelected;
-  }
-
-  handleSelection(event) {
-    this.tabSelected = event;
-  }
 }
