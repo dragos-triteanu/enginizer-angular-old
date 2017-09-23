@@ -1,26 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Route, Router} from "@angular/router";
-import {AlertService} from "../../../shared/services/alert.service";
-import {RecoveryService} from "../../../shared/services/recovery.service";
+import {Router} from '@angular/router';
+import {AlertService} from '../../../shared/services/alert.service';
+import {RecoveryService} from '../../../shared/services/recovery.service';
 
 @Component({
-  selector: 'enginizer-forgot-password',
+  selector: 'ngnizr-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.css']
+  styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
-  model:any = {};
+  model: any = {};
   loading = false;
 
-  constructor(private alertService:AlertService, private router:Router, private recoveryService:RecoveryService) {
+  constructor(private alertService: AlertService, private router: Router, private recoveryService: RecoveryService) {
   }
 
   ngOnInit() {
   }
 
   callPasswordRecovery() {
-    var THIS = this;
+    const THIS = this;
 
     this.recoveryService.recovery(this.model)
       .then(function () {
@@ -32,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   isEmailValid() {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(this.model.email);
   }
 

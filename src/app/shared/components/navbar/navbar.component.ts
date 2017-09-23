@@ -8,7 +8,7 @@ import { CasesService } from '../../../roles/cases/services/cases.service';
 declare var jQuery: any;
 
 @Component({
-  selector: 'enginizer-navbar',
+  selector: 'ngnizr-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })

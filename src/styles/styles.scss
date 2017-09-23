@@ -1,14 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('../node_modules/primeng/resources/themes/omega/theme.css');
-@import url('../node_modules/primeng/resources/primeng.min.css');
-@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+@import url('../../node_modules/primeng/resources/themes/omega/theme.css');
+@import url('../../node_modules/primeng/resources/primeng.min.css');
+@import url('../../node_modules/font-awesome/css/font-awesome.min.css');
+@import "colors";
 
-$enginizer-form-background-color: #cacaca;
-$enginizer-form-button-color: #72a33d;
-$enginizer-form-error-color: #a94442;
+$enginizer-form-background-color: $enginizer-gray;
+$enginizer-form-button-color: $enginizer-green;
+$enginizer-form-bottom-highlight-color: $enginizer-orange;
+$enginizer-form-error-color: $enginizer-red;
 $enginizer-form-bottom-height: 15px;
-$enginizer-form-pink: #ee6e73;
+$enginizer-form-pink: $enginizer-pink;
 $view-height: 100vh;
+
 
 html,
 body {
@@ -18,12 +21,17 @@ body {
   background-color: #eceeef;
 }
 
+.enginizer-form {
+  border-bottom: $enginizer-form-bottom-height solid $enginizer-form-bottom-highlight-color;
+}
+
+
 .nav-content .tabs {
   background-color: $enginizer-form-background-color;
 }
 
 .nav-content .tabs .tab:hover {
-  color: $enginizer-form-pink !important;
+  color: $enginizer-orange !important;
 }
 
 .enginizer-form {
@@ -49,41 +57,10 @@ body {
 
 @media only screen and (min-width: 992px) {
 
-  .enginizer-description {
-    height: 200px;
-  }
-
-  .buttonContainer {
-    margin-top: 10%;
-  }
 }
 
 //Mobile Devices
 @media only screen and (max-width: 992px) {
-
-  .enginizer-slider-conrol {
-    display: none;
-  }
-
-  .loading-screen-image {
-    height: 90px;
-  }
-
-  .enginizer-description {
-    height: 100px;
-  }
-
-  .buttonContainer {
-    margin-top: 50%;
-  }
-
-  .caseCard {
-    height: 350px !important;
-  }
-
-  .enginizer-left-margined {
-    margin-left: 20px !important;
-  }
 
 }
 
@@ -131,6 +108,4 @@ input[type=search]:focus:not([readonly]) {
   width: 80%;
 }
 
-.enginizer-form {
-  border-bottom: $enginizer-form-bottom-height solid $enginizer-form-button-color;
-}
+
