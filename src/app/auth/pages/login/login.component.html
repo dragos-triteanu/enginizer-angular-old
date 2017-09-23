@@ -1,49 +1,57 @@
-﻿<div class="jumbotron login-jumbo">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 offset-md-4 col-xs-12 offset-xs-0 enginizer-form vcenter">
-        <div class="col-md-10 offset-md-1 enginizer-logo-container">
-          <img class="img-responsive" src="../../../../assets/enginizer-logo.png"/>
-        </div>
-        <form name="form" class="" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-          <div class="col-md-10 offset-md-1">
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+﻿<div class="container">
+  <div class="row">
+    <div class="col m4 offset-m4 s12 offset-s0 enginizer-form z-depth-2">
+      <form name="form" class="center-align" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="col m10 s12 offset-m1">
+          <div class="row">
+            <div class="col m8 offset-m2 logo">
+              <img class="responsive-img" src="../../../../assets/enginizer-logo.png"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
               <input type="text" class="form-control enginizer-input" placeholder="Email" name="email"
                      [(ngModel)]="model.email" #email="ngModel" required i18n-placeholder="Email"/>
               <div *ngIf="f.submitted && !email.valid" class="help-block">Nume utilizator este obligatoriu</div>
             </div>
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          </div>
+          <div class="row">
+            <div class="input-field" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
               <input type="password" class="form-control enginizer-input" placeholder="Password" name="password"
                      [(ngModel)]="model.password" #password="ngModel"
                      required i18n-placeholder="Password"/>
               <div *ngIf="f.submitted && !password.valid" class="help-block">Parola este obligatorie</div>
             </div>
-            <div class="form-group">
-              <button [disabled]="loading" class="btn btn-primary btn-block enginizer-button" i18n="Login">Login</button>
-            </div>
-            <div class="form-group">
-              <a [routerLink]="['/forgot-password']" class="enginizer-paragraph" i18n="Forgot password">Ai uitat parola?</a>
-            </div>
-            <div class="form-group">
-              <div class="offset-md-5">
-                <img *ngIf="loading"
-                     src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
-              </div>
-              <hr/>
-            </div>
-            <div class="form-group">
-              <p class="enginizer-paragraph" i18n="User needs account?|Ask the user if he needs an account">Ai nevoie de un cont?</p>
-            </div>
-            <div class="form-group">
-              <button [routerLink]="['/register']" class="btn btn-primary btn-block enginizer-button" type="button">Inregistreaza-te
-              </button>
-            </div>
           </div>
-        </form>
-      </div>
-      <div class="col-md-4 offset-md-4" style="padding:0px;">
-        <hr class="enginizer-form-bottom"/>
-      </div>
+          <div class="row">
+            <button [disabled]="loading" class="btn waves-effect waves-light enginizer-button col s8 offset-s2"
+                    i18n="Login">Login
+            </button>
+          </div>
+          <div class="row">
+            <a [routerLink]="['/forgot-password']" class="enginizer-paragraph col s8 offset-s2"
+               i18n="Forgot password">Ai uitat
+              parola?</a>
+          </div>
+          <div class="row">
+            <div class="offset-m5">
+              <img *ngIf="loading"
+                   src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+            </div>
+            <hr/>
+          </div>
+          <div class="row">
+            <p class="enginizer-paragraph" i18n="User needs account?|Ask the user if he needs an account">Ai nevoie de
+              un cont?</p>
+          </div>
+          <div class="row">
+            <button [routerLink]="['/register']"
+                    class="btn waves-effect waves-light enginizer-button col s8 offset-s2" type="button">
+              Inregistreaza-te
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

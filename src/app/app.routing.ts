@@ -1,7 +1,6 @@
-﻿import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from "./core/pages/home/home.component";
+﻿import {RouterModule, Routes} from '@angular/router';
 
-const appRoutes:Routes = [
+const appRoutes: Routes = [
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
 ];

@@ -1,5 +1,9 @@
-<enginizer-navbar [brandName]="'Enginizer'"></enginizer-navbar>
-<!-- main app container -->
+<header>
+  <enginizer-navbar [brandName]="'Enginizer'"></enginizer-navbar>
+</header>
+<main>
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
 
-<enginizer-alert></enginizer-alert>
-<router-outlet></router-outlet>
