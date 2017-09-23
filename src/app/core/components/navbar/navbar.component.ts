@@ -1,11 +1,11 @@
-import {Component, Input} from "@angular/core";
-import {AuthenticationService} from "../../../auth/services/authentication.service";
-import {Router} from "@angular/router";
-import {Subscription} from "rxjs";
-import {TranslateService} from "@ngx-translate/core";
-import {CasesService} from "../../../roles/cases/services/cases.service";
+import { Component, Input } from '@angular/core';
+import { AuthenticationService } from '../../../auth/services/authentication.service';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { CasesService } from '../../../roles/cases/services/cases.service';
 
-declare var jQuery:any;
+declare var jQuery: any;
 
 @Component({
   selector: 'enginizer-navbar',
@@ -13,15 +13,15 @@ declare var jQuery:any;
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  @Input("brandName")
-  brandName:string = "";
-  activeUrl:string = "";
+  @Input('brandName')
+  brandName = '';
+  activeUrl = '';
 
-  selectedTab:string = "in_progress";
+  selectedTab = 'in_progress';
 
-  subscription:Subscription;
+  subscription: Subscription;
 
-  constructor(private authService:AuthenticationService, private router:Router, private caseService:CasesService, public translate: TranslateService) {
+  constructor(private authService: AuthenticationService, private router: Router, private caseService: CasesService, public translate: TranslateService) {
   }
 
   isLoggedIn() {
@@ -29,28 +29,28 @@ export class NavbarComponent {
   }
 
   isDoctorLoggedIn() {
-    return this.authService.isUserWithRole("DOCTOR");
+    return this.authService.isUserWithRole('DOCTOR');
   }
 
-  isAdminLoggedIn(){
-    return this.authService.isUserWithRole("ADMIN");
+  isAdminLoggedIn() {
+    return this.authService.isUserWithRole('ADMIN');
   }
 
   logout() {
     this.authService.logout();
     this.router.navigate(['/faq']);
-    jQuery(".nav-item.active").removeClass("active");
+    jQuery('.nav-item.active').removeClass('active');
   }
 
   isActive(url) {
-    return this.router.url.indexOf(url) != -1;
+    return this.router.url.indexOf(url) !== -1;
   }
 
   isNotActive(url) {
-    return ! (this.router.url.indexOf(url) != -1);
+    return !(this.router.url.indexOf(url) !== -1);
   }
 
-  onSelect(selected){
+  onSelect(selected) {
     this.selectedTab = selected;
     this.caseService.announceCaseStatusChange(this.selectedTab);
   }

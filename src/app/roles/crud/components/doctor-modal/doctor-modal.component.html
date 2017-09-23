@@ -1,0 +1,25 @@
+<ngnizr-modal>
+  <ng-container modal-header>
+    <h5 class="modal-title">Title</h5>
+  </ng-container>
+  <ng-container modal-body>
+    SOme Body
+  </ng-container>
+  <ng-container modal-footer>
+    <button type="button" class="btn btn-primary"
+            (click)="create()">
+      Create
+    </button>
+    <button type="button"
+            class="btn btn-warning"
+            (click)="update()">
+      Update
+    </button>
+    <button class="btn btn-danger"
+            (click)="remove()">
+      Delete
+    </button>
+    <button type="button" class="waves-effect btn-flat" (click)="modal.close()">Cancel
+    </button>
+  </ng-container>
+</ngnizr-modal>

@@ -1,22 +1,22 @@
-import { NgModule } from "@angular/core";
-import { CreateDoctorComponent } from "./components/create-doctor/create-doctor.component";
-import { CommonModule } from "@angular/common";
-import { SharedModule } from "../../shared/shared.module";
-import { AutoCompleteModule, DataTableModule, DialogModule, FileUploadModule } from "primeng/primeng";
-import { FormsModule } from "@angular/forms";
-import { CrudComponent } from "./crud.component";
-import { CrudRoutingModule } from "./crud.routing";
-import { CrudService } from "./services/crud.service";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
+import { AutoCompleteModule, DataTableModule, DialogModule, FileUploadModule } from 'primeng/primeng';
+import { FormsModule } from '@angular/forms';
+import { CrudComponent } from './crud.component';
+import { CrudRoutingModule } from './crud.routing';
+import { CrudService } from './services/crud.service';
+import { DoctorModalComponent } from './components/doctor-modal/doctor-modal.component';
 
 @NgModule({
   declarations: [
     CrudComponent,
-    CreateDoctorComponent,
+    DoctorModalComponent,
   ],
   providers: [
     CrudService
   ],
-  imports:[
+  imports: [
     CommonModule,
     SharedModule,
     AutoCompleteModule,

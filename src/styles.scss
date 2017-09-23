@@ -46,59 +46,25 @@ body {
   padding: 0px !important;
 }
 
-.enginizer-form-bottom {
-  margin: 0px;
-  height: $enginizer-form-bottom-height;
-  background-color: $enginizer-form-button-color;
-}
-
 .help-block {
   color: $enginizer-form-error-color;
 }
 
 .jumbotron {
-  height: calc(100vh - 95px);
 }
 
 .ui-fileupload-buttonbar {
   display: flex;
 }
 
-.ui-fileupload-buttonbar .ui-button {
-  width: 33%;
-  height: 26px;
-}
-
-.ui-fileupload-buttonbar .ui-button {
-  border: none;
-  border-radius: 0px;
-}
 
 @media only screen and (min-width: 992px) {
-  .create-case-modal {
-    width: 35% !important;
-    max-height: 70% !important;
-    overflow-y: hidden !important;
-  }
-
   .main-loading-screen {
     margin-top: 20%;
   }
 
-  .create-case-modal-content, .upload-more-files-modal {
-    margin-top: 10% !important;
-    border-top: 0px;
-    margin-bottom: 5%;
-  }
-
   .enginizer-description {
     height: 200px;
-  }
-
-  .delete-case-modal {
-    width: 25% !important;
-    max-height: 40% !important;
-    overflow-y: hidden !important;
   }
 
   .buttonContainer {
@@ -108,11 +74,6 @@ body {
 
 //Mobile Devices
 @media only screen and (max-width: 992px) {
-  .create-case-modal {
-    width: 80% !important;
-    max-height: 65% !important;
-    overflow-y: hidden !important;
-  }
 
   .enginizer-slider-conrol {
     display: none;
@@ -137,112 +98,10 @@ body {
     height: 350px !important;
   }
 
-  .ui-fileupload-row div:nth-child(2), .ui-fileupload-row div:nth-child(3) {
-    display: none;
-  }
-
-  .ui-fileupload-buttonbar .ui-button-text {
-    font-size: 11px;
-  }
-
-
   .enginizer-left-margined {
     margin-left: 20px !important;
   }
 
-
-}
-
-.create-case-modal-content, .upload-more-files-modal-content {
-  border-bottom: 0px;
-  //height: 100% !important;
-}
-
-.delete-case-modal-content {
-  border-bottom: 0px;
-}
-
-.modal, .modal-content, .modal-footer {
-  background-color: $enginizer-form-background-color;
-}
-
-.modal {
-  border-bottom: $enginizer-form-bottom-height solid $enginizer-form-button-color;
-}
-
-.ui-datatable .ui-datatable-thead > tr > th, .ui-datatable .ui-datatable-tfoot > tr > td, .ui-datatable .ui-datatable-data > tr > td {
-  border: none;
-  padding: 15px 5px;
-  vertical-align: middle;
-  text-align: center;
-}
-
-.ui-datatable .ui-datatable-thead > tr > th {
-  background: #ff7ba3;
-  border-radius: 0px;
-  color: white;
-}
-
-.ui-datatable th.ui-sortable-column:not(.ui-state-active):hover {
-  background-color: #72a33d;
-  color: white;
-}
-
-.ui-datatable th.ui-state-active {
-  background: #72a33d !important;
-  color: white;
-}
-
-.ui-datatable th.ui-state-focus {
-  outline-width: 0px;
-}
-
-.ui-paginator {
-  text-align: right;
-}
-
-.ui-widget-header {
-  border: none;
-  background: #72a33d;
-  outline-width: 0px;
-}
-
-.ui-widget-content {
-  border-right: none;
-  border-left: none;
-  outline-width: 0px;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-  border: none;
-  background: none;
-  outline-width: 0px;
-  color: white;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.ui-paginator .ui-paginator-page.ui-state-active {
-  background: #ff7ba3;
-  color: #ffffff;
-  border-radius: 0px;
-  padding: 2px 10px 2px 10px;
-}
-
-.ui-paginator a:not(.ui-state-disabled):not(.ui-state-active):hover {
-  background: #ff7ba3;
-  color: #ffffff;
-  border-radius: 0px;
-}
-
-.ui-datatable tbody > tr.ui-widget-content.ui-state-highlight {
-  background-color: #eceeef;
-  color: black;
-}
-
-.fa-search {
-  font-size: 25px;
-  color: gray;
 }
 
 input[type=text]:focus:not([readonly]),
@@ -288,4 +147,3 @@ input[type=search]:focus:not([readonly]) {
 .autocomplete {
   width: 80%;
 }
-

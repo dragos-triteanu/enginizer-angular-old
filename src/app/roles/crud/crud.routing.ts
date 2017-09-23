@@ -1,11 +1,11 @@
-import {NgModule} from "@angular/core";
-import {RouterModule, Routes} from "@angular/router";
-import {AuthGuard} from "../../shared/guards/auth.guard";
-import {AdminGuard} from "../../shared/guards/admin.guard";
-import {CrudComponent} from "./crud.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../../shared/guards/auth.guard';
+import { AdminGuard } from '../../shared/guards/admin.guard';
+import { CrudComponent } from './crud.component';
 
 
-const appRoutes:Routes = [
+const appRoutes: Routes = [
   {path: '', component: CrudComponent, canActivate: [AuthGuard, AdminGuard]},
 ];
 

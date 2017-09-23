@@ -1,4 +1,3 @@
-<enginizer-loading *ngIf="loading"></enginizer-loading>
 <div *ngIf="loading == false" class="jumbotron">
 <div class="container">
    <div>
@@ -11,7 +10,7 @@
                [paginator]="true" [rows]="10" (onRowSelect)="onRowSelect($event)"
                [rowStyleClass]="lookupRowStyleClass"
                [globalFilter]="gb" #dt>
-    <p-column field="fullName" header="Name" [sortable]="true">></p-column>
+    <p-column field="fullName" header="Name" [sortable]="true"></p-column>
     <p-column field="email" header="E-mail" [sortable]="true">></p-column>
     <p-column field="nrOfCases" header="Cases" [sortable]="true">></p-column>
   </p-dataTable>
@@ -22,11 +21,5 @@
   </div>
 </div>
 </div>
-<!-- Modal Structure -->
-<div id="createDoctorModal" class="modal modal-fixed-footer create-case-modal">
-  <div class="modal-content create-case-modal-content">
-    <h3 style="text-align: center">Informatii despre medic</h3>
-    <enginizer-create-doctor (createdOrUpdatedDoctor)="addOrUpdateDoctor($event)"></enginizer-create-doctor>
-  </div>
-</div>
+<ngnizr-doctor-modal [doctor]="selectedDoctor" ></ngnizr-doctor-modal>
 

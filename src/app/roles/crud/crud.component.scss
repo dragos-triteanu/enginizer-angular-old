@@ -1,3 +1,79 @@
 
+:host {
+  /deep/ {
+    .ui-datatable .ui-datatable-thead > tr > th, .ui-datatable .ui-datatable-tfoot > tr > td, .ui-datatable .ui-datatable-data > tr > td {
+      border: none;
+      padding: 15px 5px;
+      vertical-align: middle;
+      text-align: center;
+    }
 
+    .ui-datatable .ui-datatable-thead > tr > th {
+      background: #ff7ba3;
+      border-radius: 0px;
+      color: white;
+    }
 
+    .ui-datatable th.ui-sortable-column:not(.ui-state-active):hover {
+      background-color: #72a33d;
+      color: white;
+    }
+
+    .ui-datatable th.ui-state-active {
+      background: #72a33d !important;
+      color: white;
+    }
+
+    .ui-datatable th.ui-state-focus {
+      outline-width: 0px;
+    }
+
+    .ui-paginator {
+      text-align: right;
+    }
+
+    .ui-widget-header {
+      border: none;
+      background: #72a33d;
+      outline-width: 0px;
+    }
+
+    .ui-widget-content {
+      border-right: none;
+      border-left: none;
+      outline-width: 0px;
+    }
+
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+      border: none;
+      background: none;
+      outline-width: 0px;
+      color: white;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+    .ui-paginator .ui-paginator-page.ui-state-active {
+      background: #ff7ba3;
+      color: #ffffff;
+      border-radius: 0px;
+      padding: 2px 10px 2px 10px;
+    }
+
+    .ui-paginator a:not(.ui-state-disabled):not(.ui-state-active):hover {
+      background: #ff7ba3;
+      color: #ffffff;
+      border-radius: 0px;
+    }
+
+    .ui-datatable tbody > tr.ui-widget-content.ui-state-highlight {
+      background-color: #eceeef;
+      color: black;
+    }
+
+    .fa-search {
+      font-size: 25px;
+      color: gray;
+    }
+  }
+}
