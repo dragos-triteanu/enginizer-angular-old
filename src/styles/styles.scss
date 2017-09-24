@@ -12,12 +12,11 @@ $enginizer-form-bottom-height: 15px;
 $enginizer-form-pink: $enginizer-pink;
 $view-height: 100vh;
 
-
 html,
 body {
   height: 100%;
   color: #2c2b31;
-  font-family: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #eceeef;
 }
 
@@ -25,18 +24,15 @@ body {
   border-bottom: $enginizer-form-bottom-height solid $enginizer-form-bottom-highlight-color;
 }
 
-
 .nav-content .tabs {
   background-color: $enginizer-form-background-color;
 }
 
-.nav-content .tabs .tab:hover {
-  color: $enginizer-orange !important;
-}
 
 .enginizer-form {
   background-color: $enginizer-form-background-color;
 }
+
 .enginizer-paragraph {
   text-align: center;
 }
@@ -64,20 +60,10 @@ body {
 
 }
 
-input[type=text]:focus:not([readonly]),
-input[type=search]:focus:not([readonly]) {
-  border-bottom: 1px solid #72a33d;
-  box-shadow: 0 1px 0 0 #72a33d;
-}
-
 @media (max-width: 35em) {
   .ui-datatable-reflow .ui-datatable-data > tr > td {
     text-align: left !important;
   }
-}
-
-.owl-prev, .owl-next {
-  width: 48%;
 }
 
 .grayed-out {
@@ -97,15 +83,6 @@ input[type=search]:focus:not([readonly]) {
   background: #eceeef !important;
   border: none !important;
   color: black !important;
-}
-
-.ui-autocomplete-input {
-  color: black;
-  font-size: 25px !important;
-}
-
-.autocomplete {
-  width: 80%;
 }
 
 

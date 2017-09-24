@@ -8,10 +8,10 @@ import { User } from '../../../../shared/models/user.model';
  */
 @Component({
   selector: 'ngnizr-doctor-modal',
-  templateUrl: './doctor-modal.component.html',
-  styleUrls: ['./doctor-modal.component.scss']
+  templateUrl: './crud-modal.component.html',
+  styleUrls: ['./crud-modal.component.scss']
 })
-export class DoctorModalComponent implements OnInit {
+export class CrudModalComponent implements OnInit {
   @ViewChild(ModalComponent) modal: ModalComponent;
   @ViewChild(PickList) pickList: PickList;
 

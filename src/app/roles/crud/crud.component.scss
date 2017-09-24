@@ -1,5 +1,7 @@
+@import "../../../styles/colors";
 
 :host {
+  width: 100%;
   /deep/ {
     .ui-datatable .ui-datatable-thead > tr > th, .ui-datatable .ui-datatable-tfoot > tr > td, .ui-datatable .ui-datatable-data > tr > td {
       border: none;
@@ -9,7 +11,7 @@
     }
 
     .ui-datatable .ui-datatable-thead > tr > th {
-      background: #ff7ba3;
+      background: $enginizer-green;
       border-radius: 0px;
       color: white;
     }
@@ -34,7 +36,7 @@
 
     .ui-widget-header {
       border: none;
-      background: #72a33d;
+      background: $enginizer-green;
       outline-width: 0px;
     }
 
@@ -54,14 +56,14 @@
     }
 
     .ui-paginator .ui-paginator-page.ui-state-active {
-      background: #ff7ba3;
+      background: $enginizer-orange;
       color: #ffffff;
       border-radius: 0px;
       padding: 2px 10px 2px 10px;
     }
 
     .ui-paginator a:not(.ui-state-disabled):not(.ui-state-active):hover {
-      background: #ff7ba3;
+      background: $enginizer-orange;
       color: #ffffff;
       border-radius: 0px;
     }

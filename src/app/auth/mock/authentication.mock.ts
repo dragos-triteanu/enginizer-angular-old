@@ -14,8 +14,8 @@ export class AuthenticationInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let url: string = req.url;
-    let method: string = req.method;
+    const url: string = req.url;
+    const method: string = req.method;
 
     return authenticationBackend(url, method, req) || next.handle(req);
   }
@@ -38,16 +38,16 @@ export function authenticationBackend(url: string, method: string, request: Http
     role: 'DOCTOR'
   });
 
-  if (users.length == 0) {
+  if (users.length === 0) {
     users.push(adminUser, doctorUser);
   }
 
   if (url.endsWith('/api/login') && method === 'POST') {
     // Get parameters from POST request
-    let params: any = request.body;
-
+    const params: any = request.body;
+    debugger
     // Find if any user matches login credentials
-    let filteredUsers = users.filter(user => {
+    const filteredUsers = users.filter(user => {
       return user.email === params.email && user.password === params.password;
     });
 

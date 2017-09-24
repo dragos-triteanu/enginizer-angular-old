@@ -1,65 +1,68 @@
-$flat_white_color: #FEFEFA;
+@import '../../../../styles/colors';
 
-
-.main-nav {
-  background-color: $flat_white_color;
-}
-
-.enginizer-nav-control {
-  background-color: #ff7ba3;
-  text-align: center;
-}
-
-.enginizer-nav-control a {
-  color: $flat_white_color;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-.nav-item {
-  text-align: center;
-}
-
-.nav-item a {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  color: #808080;
-}
-
-.nav-item a:hover {
-  color: #555555;
-}
-
-.nav-item.active {
-  border-bottom: 5px solid green;
-}
-
-nav {
-  background-color: white;
-}
-
-.brand-logo {
-  color: #555555;
-}
-
-
-@media only screen and (min-device-width: 800px) {
-  .enginizer-nav-control{
-    width: 200px;
+:host {
+  .main-nav {
+    background-color: $enginizer-white;
   }
-  .nav-wrapper .brand-logo{
-    margin-left: 20px;
+
+  .enginizer-nav-control {
+    background-color: $enginizer-accent;
+    text-align: center;
   }
-}
 
-.nav-wrapper .brand-logo img {
-  height: 38px;
-}
+  .enginizer-nav-control a {
+    color: $enginizer-white;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 
-.tab.active{
-  color: #a94442 !important;
-}
+  .nav-item {
+    text-align: center;
+  }
 
-.language-switch{
-  display: flex;padding-left: 5px;padding-right: 5px;color: black;
+  .nav-item a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: $enginizer-hover;
+  }
+
+  .nav-item a:hover {
+    color: $enginizer-hover-darker;
+  }
+
+  .nav-item.active {
+    border-bottom: 5px solid $enginizer-green;
+  }
+
+  nav {
+    background-color: white;
+  }
+
+  .brand-logo {
+    color: #555555;
+  }
+
+  @media only screen and (min-device-width: 800px) {
+    .enginizer-nav-control {
+      width: 200px;
+    }
+    .nav-wrapper .brand-logo {
+      margin-left: 20px;
+    }
+  }
+
+  .nav-wrapper .brand-logo img {
+    height: 38px;
+  }
+
+  .tab.active {
+    color: #a94442 !important;
+  }
+
+  .language-switch {
+    display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+  }
 }

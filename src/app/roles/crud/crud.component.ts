@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { CrudService } from './services/crud.service';
-import { User } from '../../shared/models/user.model';
-import { DoctorModalComponent } from './components/doctor-modal/doctor-modal.component';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {CrudService} from './services/crud.service';
+import {User} from '../../shared/models/user.model';
+import {CrudModalComponent} from './components/crud-modal/crud-modal.component';
 
 @Component({
   selector: 'ngnizr-crud',
@@ -9,7 +9,7 @@ import { DoctorModalComponent } from './components/doctor-modal/doctor-modal.com
   styleUrls: ['crud.component.scss']
 })
 export class CrudComponent implements OnInit {
-  @ViewChild(DoctorModalComponent) doctorModal: DoctorModalComponent;
+  @ViewChild(CrudModalComponent) doctorModal: CrudModalComponent;
 
   doctors: User[] = [];
   loading = false;
@@ -29,7 +29,7 @@ export class CrudComponent implements OnInit {
     this.doctorModal.open();
   }
 
-  createNewDoctor() {
+  openCrudModal() {
     this.selectedDoctor = new User();
     this.doctorModal.open();
   }

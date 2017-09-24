@@ -23,7 +23,7 @@
       </li>
       <li class="nav-item" class="enginizer-nav-control" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link" *ngIf="!isLoggedIn();" [routerLink]="['/login']">Login</a>
-        <enginizer-dropdown (logout)="logout()" [routerLinkActive]="['active']" *ngIf="isLoggedIn();"></enginizer-dropdown>
+        <ngnizr-dropdown (onLogout)="logout()" [routerLinkActive]="['active']" *ngIf="isLoggedIn();"></ngnizr-dropdown>
       </li>
     </ul>
     <ul class="side-nav" id="mobile-demo">

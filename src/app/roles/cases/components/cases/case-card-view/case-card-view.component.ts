@@ -1,8 +1,8 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthenticationService} from "../../../../../auth/services/authentication.service";
-import {CasesService} from "../../../services/cases.service";
-import { Case } from '../../../../../shared/models/case.model';
+import {Router} from '@angular/router';
+import {AuthenticationService} from '../../../../../auth/services/authentication.service';
+import {CasesService} from '../../../services/cases.service';
+import {Case} from '../../../../../shared/models/case.model';
 
 
 @Component({
@@ -11,15 +11,15 @@ import { Case } from '../../../../../shared/models/case.model';
   styleUrls: ['./case-card-view.component.css']
 })
 export class CaseCardViewComponent implements OnInit {
-  @Input("case")
+  @Input('case')
   case: Case;
 
   isAdmin = true;
-  @Output("deleteCase")
+  @Output('deleteCase')
   deleteCase: EventEmitter<any> = new EventEmitter();
 
-  constructor(private casesService: CasesService, private router: Router,private authenticationService:AuthenticationService) {
-    this.isAdmin = JSON.parse(localStorage.getItem("current_user")).role == "ADMIN";
+  constructor(private casesService: CasesService, private router: Router, private authenticationService: AuthenticationService) {
+    this.isAdmin = JSON.parse(localStorage.getItem('current_user')).role == 'ADMIN';
   }
 
   deleteCard() {
@@ -30,15 +30,15 @@ export class CaseCardViewComponent implements OnInit {
   }
 
   goToCaseDetails(selectedCase: Case) {
-    this.router.navigate(["caz"], {queryParams: {id: selectedCase.id}});
+    this.router.navigate(['caz'], {queryParams: {id: selectedCase.id}});
   }
 
-  isDoctorLoggedIn(){
-    return this.authenticationService.isUserWithRole("DOCTOR");
+  isDoctorLoggedIn() {
+    return this.authenticationService.isUserWithRole('DOCTOR');
   }
 
-  shouldRenderDelete(){
-    return this.case.status == 'in_progress' && this.authenticationService.isUserWithRole("USER");
+  shouldRenderDelete() {
+    return this.case.status == 'in_progress' && this.authenticationService.isUserWithRole('USER');
   }
 
 }

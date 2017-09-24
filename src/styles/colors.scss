@@ -1,5 +1,17 @@
-$enginizer-orange: #F57C00;
-$enginizer-green: #388E3C;
+//https://material.io/guidelines/style/color.html#color-color-palette
+
+$enginizer-orange: #FF6D00; //A700
+$enginizer-green: #43A047; //600
+$enginizer-green-dark: #43A047; //900
 $enginizer-gray: #cacaca;
 $enginizer-red: #a94442;
 $enginizer-pink: #ee6e73;
+$enginizer-white: #FEFEFA;
+$enginizer-hover: #808080;
+$enginizer-hover-darker: #555555;
+$enginizer-black: black;
+
+//Material theme-ing
+$enginizer-color-primary: $enginizer-green;
+$enginizer-color-primary-darker: $enginizer-green-dark;
+$enginizer-accent: $enginizer-orange;

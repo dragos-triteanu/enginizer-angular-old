@@ -1,0 +1,21 @@
+@import "../../../../styles/colors";
+
+:host {
+
+  width: 100%;
+  text-align: center;
+
+  :hover{
+    backgroud-color: $enginizer-hover;
+  }
+
+  .enginizer-nav-control {
+    background-color: $enginizer-white;
+    text-align: center;
+  }
+
+  .enginizer-nav-control a {
+    color: $enginizer-black;
+  }
+
+}
