@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -7,8 +7,8 @@ import {
   HttpRequest,
   HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { User } from '../../../shared/models/user.model';
+import {Observable} from 'rxjs/Observable';
+import {User} from '../../../shared/models/user.model';
 
 
 @Injectable()
@@ -18,8 +18,8 @@ export class CrudMockInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let url: string = req.url;
-    let method: string = req.method;
+    const url: string = req.url;
+    const method: string = req.method;
 
     return casesBackend(url, method, req) || next.handle(req);
   }
@@ -31,17 +31,18 @@ export function casesBackend(url: string, method: string, request: HttpRequest<a
   const doctors: any[] = JSON.parse(localStorage.getItem('users')) || [];
 
   const doctorUser = new User({
+    name: 'someone',
     email: 'doctor@mail.com',
     password: 'doctor',
     role: 'DOCTOR'
   });
 
-  if (doctors.length == 0) {
+  if (doctors.length === 0) {
     doctors.push(doctorUser);
   }
 
-  //get all doctors
-  if (request.url.endsWith('api/user?role=DOCTOR') && method === "GET") {
+  // get all doctors
+  if (request.url.endsWith('api/user?role=DOCTOR') && method === 'GET') {
     // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
     if (request.headers.get('Authorization') != null) {
 
@@ -60,10 +61,9 @@ export function casesBackend(url: string, method: string, request: HttpRequest<a
         status: 401
       }));
     }
-  }
-  else if(request.url.endsWith('/api/user/create') && method === 'POST'){
+  } else if (request.url.endsWith('/api/user/create') && method === 'POST') {
     if (request.headers.get('Authorization') != null) {
-      var newDoctor = request.body;
+      const newDoctor = request.body;
       newDoctor.enabled = true;
       newDoctor.id = doctors.length + 1;
       doctors.push(newDoctor);
@@ -84,9 +84,9 @@ export function casesBackend(url: string, method: string, request: HttpRequest<a
         status: 401
       }));
     }
-  } else if (request.url.endsWith("/api/user/update") && method === 'PUT'){
+  } else if (request.url.endsWith('/api/user/update') && method === 'PUT') {
     if (request.headers.get('Authorization') != null) {
-        var doctorUpdate = request.body;
+      const doctorUpdate = request.body;
       return new Observable(resp => {
         resp.next(new HttpResponse<any>({
           status: 200,
@@ -96,7 +96,7 @@ export function casesBackend(url: string, method: string, request: HttpRequest<a
       });
 
 
-    } else{
+    } else {
       // return 401 not authorised if token is null or invalid
       return Observable.throw(new HttpErrorResponse({
         error: 'No login',

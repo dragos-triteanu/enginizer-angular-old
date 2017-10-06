@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,
   HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { User } from '../../shared/models/user.model';
+import {Observable} from 'rxjs/Observable';
+import {User} from '../../shared/models/user.model';
 
 
 @Injectable()
@@ -27,12 +27,14 @@ export function authenticationBackend(url: string, method: string, request: Http
   const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
 
   const adminUser = new User({
+    name: 'admin',
     email: 'admin@mail.com',
     password: 'admin',
     role: 'ADMIN'
   });
 
   const doctorUser = new User({
+    name: 'someone',
     email: 'doctor@mail.com',
     password: 'doctor',
     role: 'DOCTOR'
@@ -45,7 +47,6 @@ export function authenticationBackend(url: string, method: string, request: Http
   if (url.endsWith('/api/login') && method === 'POST') {
     // Get parameters from POST request
     const params: any = request.body;
-    debugger
     // Find if any user matches login credentials
     const filteredUsers = users.filter(user => {
       return user.email === params.email && user.password === params.password;
@@ -53,7 +54,7 @@ export function authenticationBackend(url: string, method: string, request: Http
 
     // If login details are valid return 200: OK along with user details and a fake JWT Token
     if (filteredUsers.length) {
-      let user = filteredUsers[0];
+      const user = filteredUsers[0];
 
       if (user.role === 'ADMIN') {
         // Return response for user with role ADMIN

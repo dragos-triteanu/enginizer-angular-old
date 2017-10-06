@@ -3,23 +3,44 @@
     <h5 class="modal-title">Title</h5>
   </ng-container>
   <ng-container modal-body>
-    SOme Body
+    <form [formGroup]="userForm">
+      <div class="row">
+        <div class="col-sm-12">
+          <label for="name">Name</label>
+          <input type="text"
+                 id="name"
+                 class="form-control"
+                 formControlName="name"/>
+        </div>
+        <div class="col-sm-12">
+          <label for="email">Email</label>
+          <input type="text"
+                 id="email"
+                 class="form-control"
+                 formControlName="email"/>
+        </div>
+      </div>
+    </form>
   </ng-container>
   <ng-container modal-footer>
-    <button type="button" class="btn btn-primary"
+    <button *ngIf="!editMode"
+            [disabled]="!userForm.valid"
+            type="button"
+            class="btn btn-primary"
             (click)="create()">
       Create
     </button>
-    <button type="button"
+    <button *ngIf="editMode" type="button"
             class="btn btn-warning"
             (click)="update()">
       Update
     </button>
-    <button class="btn btn-danger"
+    <button *ngIf="editMode"
+            class="btn btn-danger"
             (click)="remove()">
       Delete
     </button>
-    <button type="button" class="waves-effect btn-flat" (click)="modal.close()">Cancel
+    <button type="button" class="waves-effect btn-flat" (click)="resetForm()">Cancel
     </button>
   </ng-container>
 </ngnizr-modal>

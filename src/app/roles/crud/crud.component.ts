@@ -9,29 +9,29 @@ import {CrudModalComponent} from './components/crud-modal/crud-modal.component';
   styleUrls: ['crud.component.scss']
 })
 export class CrudComponent implements OnInit {
-  @ViewChild(CrudModalComponent) doctorModal: CrudModalComponent;
+  @ViewChild(CrudModalComponent) userModal: CrudModalComponent;
 
-  doctors: User[] = [];
+  users: User[] = [];
   loading = false;
-  selectedDoctor: User;
+  selectedUser: User;
 
   constructor(private doctorService: CrudService) {
   }
 
   ngOnInit() {
     this.loading = true;
-    this.getAllDoctors();
+    this.getAllUsers();
 
   }
 
   onRowSelect(event) {
-    this.selectedDoctor = event.data;
-    this.doctorModal.open();
+    this.selectedUser = event.data;
+    this.userModal.open(this.selectedUser);
   }
 
   openCrudModal() {
-    this.selectedDoctor = new User();
-    this.doctorModal.open();
+    this.selectedUser = new User();
+    this.userModal.open();
   }
 
 
@@ -39,15 +39,20 @@ export class CrudComponent implements OnInit {
     return rowData.enabled ? '' : 'grayed-out';
   }
 
-  getAllDoctors() {
+  getAllUsers() {
     this.doctorService.getAllDoctors().subscribe(
       (data) => {
-        this.doctors = data;
+        this.users = data;
         this.loading = false;
       },
       (error) => {
         console.log(error);
       });
+  }
+
+
+  createUser(user: User) {
+    this.users = [...this.users, user];
   }
 
 

@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { PickList } from 'primeng/primeng';
-import { ModalComponent } from '../../../../shared/components/modal/modal.component';
-import { User } from '../../../../shared/models/user.model';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
+import {PickList} from 'primeng/primeng';
+import {ModalComponent} from '../../../../shared/components/modal/modal.component';
+import {User} from '../../../../shared/models/user.model';
+import {Form, FormControl, FormGroup, Validators} from "@angular/forms";
 
 /**
  * Modal form for creating / updating {@link Plant} objects.
@@ -23,36 +24,73 @@ export class CrudModalComponent implements OnInit {
   onDelete: EventEmitter<any> = new EventEmitter();
 
   @Input()
-  doctor: User;
+  user: User;
+  @Input()
+  editMode = false;
+
+  userForm: FormGroup;
 
   constructor() {
 
   }
 
   ngOnInit() {
+    this.initForm();
   }
 
   /**
    * Opens the modal and sets up it's specific requirements.
-   * @param {any} plant
+   * @param {any} user
    */
-  open() {
+  open(user = null) {
+
+    if (user) {
+      this.editMode = true;
+      this.user = user;
+      this.initForm();
+    }
+
     this.modal.open();
   }
 
   create() {
-    this.onCreate.emit(this.doctor);
-    this.modal.close();
+    if (!this.userForm.invalid) {
+      this.onCreate.emit(this.userForm.value);
+      this.resetForm();
+    }
   }
 
   update() {
-    this.onUpdate.emit(this.doctor);
-    this.modal.close();
+    this.onUpdate.emit(this.userForm.value);
+    this.resetForm();
   }
 
   remove() {
-    this.onDelete.emit(this.doctor);
-    this.modal.close();
+    this.onDelete.emit(this.userForm.value);
+    this.resetForm();
   }
+
+
+  private initForm() {
+    let name = '';
+    let email = '';
+
+    if (this.editMode) {
+      name = this.user.fullName;
+      email = this.user.email;
+    }
+
+    this.userForm = new FormGroup({
+      'name': new FormControl(name, Validators.required),
+      'email': new FormControl(email, [Validators.required, Validators.email])
+    });
+  }
+
+  private resetForm() {
+    this.userForm.reset();
+    this.modal.close();
+    this.editMode = false;
+  }
+
 
 }

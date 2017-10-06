@@ -3,17 +3,16 @@
     <ngnizr-search></ngnizr-search>
   </div>
   <div class="row">
-    <p-dataTable [value]="doctors" [responsive]="true"
-                 selectionMode="single" [(selection)]="selectedDoctor"
+    <p-dataTable [value]="users" [responsive]="true"
+                 selectionMode="single" [(selection)]="selectedUser"
                  [paginator]="true" [rows]="10" (onRowSelect)="onRowSelect($event)"
                  [rowStyleClass]="lookupRowStyleClass"
                  [globalFilter]="gb" #dt>
-      <p-column field="fullName" header="Name" [sortable]="true"></p-column>
-      <p-column field="email" header="E-mail" [sortable]="true">></p-column>
-      <p-column field="nrOfCases" header="Cases" [sortable]="true">></p-column>
+      <p-column field="name" header="Name" [sortable]="true"></p-column>
+      <p-column field="email" header="E-mail" [sortable]="true"></p-column>
     </p-dataTable>
   </div>
 <ngnizr-fab (onClick)="openCrudModal()"></ngnizr-fab>
 </div>
-<ngnizr-doctor-modal [doctor]="selectedDoctor"></ngnizr-doctor-modal>
+<ngnizr-doctor-modal [user]="selectedUser" (onCreate)="createUser($event)"></ngnizr-doctor-modal>
 

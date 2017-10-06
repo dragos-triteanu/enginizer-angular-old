@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ModalComponent} from './components/modal/modal.component';
 import {FabComponent} from './components/fab/fab.component';
 import {SearchComponent} from './components/search/search.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {SearchComponent} from './components/search/search.component';
     FabComponent,
     SearchComponent
   ],
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [AuthGuard, AdminGuard],
   exports: [
     LoadingComponent,
@@ -31,7 +32,9 @@ import {SearchComponent} from './components/search/search.component';
     CountdownTimerComponent,
     ModalComponent,
     FabComponent,
-    SearchComponent
+    SearchComponent,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule {
