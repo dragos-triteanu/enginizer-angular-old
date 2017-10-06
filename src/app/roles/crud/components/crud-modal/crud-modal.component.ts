@@ -43,13 +43,7 @@ export class CrudModalComponent implements OnInit {
    * @param {any} user
    */
   open(user = null) {
-
-    if (user) {
-      this.editMode = true;
-      this.user = user;
-      this.initForm();
-    }
-
+    this.initForm(user);
     this.modal.open();
   }
 
@@ -71,12 +65,15 @@ export class CrudModalComponent implements OnInit {
   }
 
 
-  private initForm() {
+  private initForm(user = null) {
     let name = '';
     let email = '';
+    this.editMode = false;
 
-    if (this.editMode) {
-      name = this.user.fullName;
+    if (user) {
+      this.editMode = true;
+      this.user = user;
+      name = this.user.name;
       email = this.user.email;
     }
 
