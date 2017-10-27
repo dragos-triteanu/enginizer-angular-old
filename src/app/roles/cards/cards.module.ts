@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared/shared.module';
 import { AutoCompleteModule, FileUploadModule } from 'primeng/primeng';
 import { FormsModule } from '@angular/forms';
-import { ProtectedComponent } from './cases.component';
-import { CaseCardViewComponent } from './components/cases/case-card-view/case-card-view.component';
-import { CasesRoutingModule } from './cases.routing';
 import { CasesService } from './services/cases.service';
+import { CardsComponent } from './cards.component';
+import { CardsRoutingModule } from './cards.routing';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
-    ProtectedComponent,
-    CaseCardViewComponent
+    CardsComponent,
+    CardComponent,
   ],
   providers: [
     CasesService
@@ -22,7 +22,8 @@ import { CasesService } from './services/cases.service';
     AutoCompleteModule,
     FileUploadModule,
     FormsModule,
-    CasesRoutingModule
+    CardsRoutingModule
   ]
 })
-export class CasesModule { }
+export class CardsModule {
+}

@@ -1,11 +1,11 @@
-﻿import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+﻿import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import {AlertService, AuthenticationService} from '../../../shared/services';
+import { AlertService, AuthenticationService } from '../../../shared/services';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
-  selector: 'enginizer-login',
+  selector: 'ngnizr-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -33,12 +33,10 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.model).subscribe(
       (data: any) => {
         console.log('Login form', data);
-        debugger
         this.authenticationService.setToken(data.token);
         this.router.navigate(['home']);
       },
       (error: any) => {
-        debugger
         this.alertService.error(error);
         this.loading = false;
       }

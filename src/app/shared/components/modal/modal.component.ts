@@ -1,28 +1,30 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+
 declare var $: any;
 
 @Component({
-    selector: 'ngnizr-modal',
-    templateUrl: './modal.component.html',
-    styleUrls: ['./modal.component.scss']
+  selector: 'ngnizr-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements AfterViewInit {
-    @ViewChild('modal') modal: ElementRef;
+  @ViewChild('modal') modal: ElementRef;
 
-    private $modal;
-    constructor() {
-    }
+  private $modal;
 
-    open() {
-        this.$modal.modal('open');
-    }
+  constructor() {
+  }
 
-    close() {
-        this.$modal.modal('close');
-    }
+  open() {
+    this.$modal.modal('open');
+  }
+
+  close() {
+    this.$modal.modal('close');
+  }
 
 
-    public ngAfterViewInit(): void {
-        this.$modal = $(this.modal.nativeElement).modal();
-    }
+  public ngAfterViewInit(): void {
+    this.$modal = $(this.modal.nativeElement).modal();
+  }
 }

@@ -4,7 +4,7 @@
 
 import { User } from './user.model';
 
-export class Case {
+export class CardModel {
   id: number;
   mainSymptoms: string;
   doctor: User;
@@ -13,7 +13,7 @@ export class Case {
   hoursRemaining: number;
   status: string;
 
-  constructor(id: number, mainSymptoms: string, filesUrls: any[],doctor: User, user: User, hoursRemaining: number, status: string) {
+  constructor(id: number, mainSymptoms: string, filesUrls: any[], doctor: User, user: User, hoursRemaining: number, status: string) {
     this.id = id;
     this.mainSymptoms = mainSymptoms;
     this.fileUrls = filesUrls;

@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
-import 'rxjs/add/operator/map'
-import { environment } from "../../../environments/environment";
+import 'rxjs/add/operator/map';
+import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 
@@ -15,10 +15,10 @@ export class UserService {
   }
 
   updateDoctor(user: User) {
-    return this.authHttp.put(environment.hostUrl + "/api/user/update", user);
+    return this.authHttp.put(environment.apiUrl + '/api/user/update', user);
   }
 
   createUser(user: User) {
-    return this.authHttp.post<User>(environment.hostUrl + "/api/user/create", user);
+    return this.authHttp.post<User>(environment.apiUrl + '/api/user/create', user);
   }
 }

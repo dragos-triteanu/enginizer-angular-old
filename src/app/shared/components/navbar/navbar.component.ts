@@ -1,9 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { AuthenticationService } from '../../../auth/services/authentication.service';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { CasesService } from '../../../roles/cases/services/cases.service';
+import { AuthenticationService } from '../../../auth/services/authentication.service';
+import { CasesService } from '../../../roles/cards/services/cases.service';
 
 declare var jQuery: any;
 
@@ -15,13 +14,13 @@ declare var jQuery: any;
 export class NavbarComponent {
   @Input('brandName')
   brandName = '';
-  activeUrl = '';
 
   selectedTab = 'in_progress';
 
-  subscription: Subscription;
-
-  constructor(private authService: AuthenticationService, private router: Router, private caseService: CasesService, public translate: TranslateService) {
+  constructor(private authService: AuthenticationService,
+              private router: Router,
+              private caseService: CasesService,
+              public translate: TranslateService) {
   }
 
   isLoggedIn() {

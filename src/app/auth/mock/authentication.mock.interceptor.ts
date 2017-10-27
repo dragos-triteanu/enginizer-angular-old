@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,
   HttpResponse
 } from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {User} from '../../shared/models/user.model';
+import { Observable } from 'rxjs/Observable';
+import { User } from '../../shared/models/user.model';
 
 
 @Injectable()
@@ -62,7 +62,9 @@ export function authenticationBackend(url: string, method: string, request: Http
           resp.next(new HttpResponse<any>({
             status: 200,
             body: {
-              token: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsImF1ZGllbmNlIjoid2ViIiwicm9sZSI6IkFETUlOIiwiY3JlYXRlZCI6MTUwMTQyOTU4OTgzNCwiZnVsbE5hbWUiOiJBZG1pbiIsImV4cCI6Mjg0MDEzMzYwMDAwMCwidXNlcklkIjoxfQ.qxV4KoW6J7ZuNS_I0ZKIWAB7u-ITGuMIXn2b8v5teRk',
+              token: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsImF1ZGllbmNlIjoid2ViIiwicm9sZSI6IkFETU' +
+              'lOIiwiY3JlYXRlZCI6MTUwMTQyOTU4OTgzNCwiZnVsbE5hbWUiOiJBZG1pbiIsImV4cCI6Mjg0MDEzMzYwMDAwMCwidXNlcklk' +
+              'IjoxfQ.qxV4KoW6J7ZuNS_I0ZKIWAB7u-ITGuMIXn2b8v5teRk',
               statusCode: 200
             }
           }));
@@ -73,7 +75,9 @@ export function authenticationBackend(url: string, method: string, request: Http
           resp.next(new HttpResponse<any>({
             status: 200,
             body: {
-              token: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkb2N0b3JAbWFpbC5jb20iLCJhdWRpZW5jZSI6IndlYiIsInJvbGUiOiJET0NUT1IiLCJjcmVhdGVkIjoxNTAxNDI5NTg5ODM0LCJmdWxsTmFtZSI6IkRvY3RvciIsImV4cCI6Mjg0MDEzMzYwMDAwMCwidXNlcklkIjoyfQ.hMv-2JhDQuTvi4bnILpJ523_vmbp_4fVXaoxSidS-fo',
+              token: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkb2N0b3JAbWFpbC5jb20iLCJhdWRpZW5jZSI6IndlYiIsInJvbGUiOiJET0NUT' +
+              '1IiLCJjcmVhdGVkIjoxNTAxNDI5NTg5ODM0LCJmdWxsTmFtZSI6IkRvY3RvciIsImV4cCI6Mjg0MDEzMzYwMDAwMCwidXNlcklkIjoy' +
+              'fQ.hMv-2JhDQuTvi4bnILpJ523_vmbp_4fVXaoxSidS-fo',
               statusCode: 200
             }
           }));

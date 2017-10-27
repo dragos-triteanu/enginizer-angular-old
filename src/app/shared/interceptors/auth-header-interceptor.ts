@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
 
 /**
  * Interceptor class for adding the JWT Authorization header to all the requests mad to the API.
  */
-
 @Injectable()
 export class AuthorizationHeaderInterceptor implements HttpInterceptor {
   readonly AUTHORIZATION_HEADER = 'Authorization';
@@ -16,9 +15,9 @@ export class AuthorizationHeaderInterceptor implements HttpInterceptor {
     return next.handle(clonedRequest).catch((res) => {
 
       if (res.status === 401 || res.status === 403) {
-        console.log("TODO: Handle");
+        console.log('TODO: Handle');
       } else if (res.status === 404) {
-        console.log("TODO: Handle");
+        console.log('TODO: Handle');
       } else {
         return Observable.throw(res);
       }

@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
-import {PickList} from 'primeng/primeng';
-import {ModalComponent} from '../../../../shared/components/modal/modal.component';
-import {User} from '../../../../shared/models/user.model';
-import {Form, FormControl, FormGroup, Validators} from "@angular/forms";
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PickList } from 'primeng/primeng';
+import { ModalComponent } from '../../../../shared/components/modal/modal.component';
+import { User } from '../../../../shared/models/user.model';
 
 /**
  * Modal form for creating / updating {@link Plant} objects.
@@ -83,7 +83,7 @@ export class CrudModalComponent implements OnInit {
     });
   }
 
-  private resetForm() {
+  resetForm() {
     this.userForm.reset();
     this.modal.close();
     this.editMode = false;

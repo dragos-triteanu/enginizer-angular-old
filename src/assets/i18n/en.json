@@ -1,5 +1,18 @@
 {
-    "home": {
-        "language": "English"
-    }
+  "home": {
+    "language": "English"
+  },
+  "errors": {
+    "duplicateRegistration": "User already exists",
+    "failedLogin": "Incorrect username or password"
+  },
+  "navbar": {
+    "login": "Login",
+    "home": "Home",
+    "crud": "Crud",
+    "cards": "Cards"
+  },
+  "cards": {
+    "timeSincePosted": "Time since posted"
+  }
 }

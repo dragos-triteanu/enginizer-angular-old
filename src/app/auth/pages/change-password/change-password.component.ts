@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from "@angular/router";
-import {Subscription} from "rxjs";
-import {RecoveryService} from "../../../shared/services/recovery.service";
-import {AuthenticationService} from "../../services/authentication.service";
-import {AlertService} from "../../../shared/services/alert.service";
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { RecoveryService } from '../../../shared/services/recovery.service';
+import { AuthenticationService } from '../../services/authentication.service';
+import { AlertService } from '../../../shared/services/alert.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'enginizer-change-password',
+  selector: 'ngnizr-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.css']
 })
@@ -14,11 +14,11 @@ export class ChangePasswordComponent implements OnInit {
   subscription: Subscription;
   model: any = {};
   token: string = null;
-  isPasswordSameAsConfirmation: boolean = true;
+  isPasswordSameAsConfirmation = true;
   loading: boolean;
 
   constructor(private router: Router, private route: ActivatedRoute, private authenticationService: AuthenticationService,
-              private recoveryService: RecoveryService, private alertService: AlertService ) {
+              private recoveryService: RecoveryService, private alertService: AlertService) {
     this.subscription = this.route.queryParams.subscribe(
       (queryParam: any) => this.token = queryParam['token']
     );
@@ -28,7 +28,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   confirmationMatches() {
-    if (this.model.password.indexOf(this.model.confirmedPassword) == 0) {
+    if (this.model.password.indexOf(this.model.confirmedPassword) === 0) {
       this.isPasswordSameAsConfirmation = true;
     } else {
       this.isPasswordSameAsConfirmation = false;
@@ -37,10 +37,11 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   changePassword() {
-    var THIS = this;
+    // ol' JS
+    const THIS = this;
     this.loading = true;
     this.recoveryService.changePassword(this.model, this.token)
-      .then( function (tokenResponse) {
+      .then(function (tokenResponse) {
         THIS.router.navigate(['home']);
         THIS.authenticationService.setToken(tokenResponse);
       }).catch(function (error) {

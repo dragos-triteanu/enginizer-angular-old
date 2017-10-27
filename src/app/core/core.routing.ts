@@ -1,13 +1,15 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { ProtectedComponent } from '../roles/cases/cases.component';
 import { CrudComponent } from '../roles/crud/crud.component';
+import { AdminGuard } from '../auth/guards/admin.guard';
+import { CardsComponent } from '../roles/cards/cards.component';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
-const appRoutes:Routes = [
+const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'cases', component: ProtectedComponent},
-  {path: 'crud', component: CrudComponent},
+  {path: 'cards', component: CardsComponent, canActivate: [AuthGuard]},
+  {path: 'crud', component: CrudComponent, canActivate: [AdminGuard]},
 
   // otherwise redirect to home
   {path: '**', redirectTo: 'home'}

@@ -1,5 +1,18 @@
 {
-    "home": {
-        "language": "Română"
-    }
+  "home": {
+    "language": "Română"
+  },
+  "errors": {
+    "duplicateRegistration": "Utilizator deja existent",
+    "failedLogin": "Username sau parola gresite"
+  },
+  "navbar": {
+    "login": "Login",
+    "home": "Acasa",
+    "crud": "Cruduri",
+    "cards": "Carduri"
+  },
+  "cards": {
+    "timeSincePosted": "Timpul de la postare"
+  }
 }

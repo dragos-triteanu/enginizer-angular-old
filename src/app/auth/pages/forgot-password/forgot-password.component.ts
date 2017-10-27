@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {Router} from '@angular/router';
-import {AlertService} from '../../../shared/services/alert.service';
-import {RecoveryService} from '../../../shared/services/recovery.service';
+import { Router } from '@angular/router';
+import { AlertService } from '../../../shared/services/alert.service';
+import { RecoveryService } from '../../../shared/services/recovery.service';
 
 @Component({
   selector: 'ngnizr-forgot-password',
@@ -32,7 +32,10 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   isEmailValid() {
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = new RegExp(
+      ['/^(([^<>()\\[\\]\\\\.,;:\\s@"]+(\\.[^<>()\\[\\]\\\\.,;:\\',
+        's@"]+)*)|(".+"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])',
+        '|(([a-zA-Z\\\\-0-9]+\\\\.)+[a-zA-Z]{2,}))$/\'])'].join(''));
     return re.test(this.model.email);
   }
 

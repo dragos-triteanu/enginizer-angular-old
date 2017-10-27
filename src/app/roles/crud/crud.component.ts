@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {CrudService} from './services/crud.service';
-import {User} from '../../shared/models/user.model';
-import {CrudModalComponent} from './components/crud-modal/crud-modal.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CrudService } from './services/crud.service';
+import { User } from '../../shared/models/user.model';
+import { CrudModalComponent } from './components/crud-modal/crud-modal.component';
 
 @Component({
   selector: 'ngnizr-crud',
@@ -54,6 +54,5 @@ export class CrudComponent implements OnInit {
   createUser(user: User) {
     this.users = [...this.users, user];
   }
-
 
 }

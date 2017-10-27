@@ -1,12 +1,12 @@
-import {Component, OnInit, Input, AfterContentInit, AfterViewInit} from '@angular/core';
-import {environment} from "../../../../environments/environment";
+import { Component, OnInit, Input, AfterContentInit, AfterViewInit } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Component({
-  selector: 'enginizer-countdown-timer',
+  selector: 'ngnizr-countdown-timer',
   template: `
-<div class="counter">
-    Trebuie raspuns in : {{hoursRemaining}}h
-</div>`,
+    <div class="counter">
+     Time : {{hoursRemaining}}h
+    </div>`,
   styles: [`
     .enginizer-timer {
       color: lightgray;
@@ -17,17 +17,19 @@ import {environment} from "../../../../environments/environment";
 })
 export class CountdownTimerComponent implements OnInit {
 
-  @Input("hoursRemaining")
-  hoursRemaining:number;
+  @Input('hoursRemaining')
+  hoursRemaining: number;
 
   constructor() {
   }
 
   ngOnInit() {
-    setInterval(() => { this.decrementDiffHours(); }, environment.doctorAnswerHoursDecrementInterval);
+    setInterval(() => {
+      this.decrementDiffHours();
+    }, environment.timeUntilAnswer);
   }
 
-  decrementDiffHours(){
+  decrementDiffHours() {
     this.hoursRemaining = this.hoursRemaining - 1;
   }
 

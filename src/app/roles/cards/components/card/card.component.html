@@ -1,0 +1,22 @@
+<!--<h2 class="header">Horizontal Card</h2>-->
+<div class="card medium caseCard" style="width: 100%">
+  <div class="card-image">
+    <img *ngIf="card?.fileUrls && card.fileUrls?.length > 0" src="{{card.fileUrls[0]}}">
+  </div>
+  <div class="card-stacked">
+    <div class="card-content">
+      <div class="row enginizer-timer-row">
+        <ngnizr-countdown-timer *ngIf="card?.hoursRemaining" class="enginizer-timer"
+                                [hoursRemaining]="card.hoursRemaining"></ngnizr-countdown-timer>
+      </div>
+      <div class="row">
+        <p class="case-status">Card #{{card.id}}</p>
+      </div>
+      <div class="row descriptionContainer">
+        <span class="truncate">{{card.mainSymptoms}}</span>
+      </div>
+    </div>
+    <div class="card-action">
+      <a [routerLink]="['/cards']" [queryParams]="{'id': card.id}" class="vcenter">Details</a>
+  </div>
+</div>

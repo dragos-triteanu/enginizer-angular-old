@@ -24,7 +24,6 @@
   </ng-container>
   <ng-container modal-footer>
     <button *ngIf="!editMode"
-            [disabled]="!userForm.valid"
             type="button"
             class="btn btn-primary"
             (click)="create()">

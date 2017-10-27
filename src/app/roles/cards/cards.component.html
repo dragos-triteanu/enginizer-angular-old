@@ -1,0 +1,22 @@
+<ngnizr-loading *ngIf="loading"></ngnizr-loading>
+<div class="container" *ngIf="loading == false">
+  <div class="fixed-action-btn horizontal" *ngIf="shouldRenderFab">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+  <br/>
+  <h2 style="text-align: center"></h2>
+  <div class="container-fluid">
+    <div class="col m12">
+      <ul class="caseList">
+        <h3 *ngIf="cards.length==0" style="text-align: center">Nu exista cazuri definite inca</h3>
+        <div class="row">
+          <li class="col m3 s12" *ngFor="let singleCard of cards | byCaseStatusPipe:tabSelected;let i = index;">
+            <ngnizr-card [card]="singleCard" ></ngnizr-card>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

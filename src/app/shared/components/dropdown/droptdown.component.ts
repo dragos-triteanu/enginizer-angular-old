@@ -1,4 +1,4 @@
-import {AfterContentChecked, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { AfterContentChecked, Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 declare var jQuery: any;
 

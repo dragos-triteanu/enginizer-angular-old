@@ -1,9 +1,9 @@
-.case-status, .case-description{
+.case-status, .case-description {
   font-weight: bold;
   font-size: 20px;
 }
 
-.case-description{
+.case-description {
   overflow: hidden;
   -ms-text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
@@ -11,12 +11,12 @@
   display: block;
 }
 
-.delete-icon{
+.delete-icon {
   font-size: 1.6rem;
   margin-top: 2px;
 }
 
-.delete-link{
+.delete-link {
   margin-right: 0px !important;
   float: right;
 }
@@ -28,7 +28,7 @@
   cursor: default;
 }
 
-.enginizer-timer-row{
+.enginizer-timer-row {
   margin-bottom: 0px;
 }
 
@@ -38,8 +38,10 @@
   font-size: 14px;
 }
 
-.card-content{padding-top: 10px}
+.card-content {
+  padding-top: 10px
+}
 
-.descriptionContainer{
+.descriptionContainer {
   margin-top: 5px;
 }

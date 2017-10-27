@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -7,13 +7,13 @@ import {
   HttpRequest,
   HttpResponse
 } from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {User} from '../../../shared/models/user.model';
-import {Case} from '../../../shared/models/case.model';
+import { Observable } from 'rxjs/Observable';
+import { User } from '../../../shared/models/user.model';
+import { CardModel } from '../../../shared/models/case.model';
 
 
 @Injectable()
-export class CasesMockInterceptor implements HttpInterceptor {
+export class CardsMockInterceptor implements HttpInterceptor {
 
   constructor() {
   }
@@ -53,9 +53,10 @@ export function casesBackend(url: string, method: string, request: HttpRequest<a
   if (url.endsWith('api/case') && method === 'GET') {
     // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
     if (request.headers.get('Authorization') != null) {
-      const someCase = new Case(1, 'Penis ache', ['http://www.qygjxz.com/data/out/193/3856596-random-image.png'], doctorUser, doctorUser, 24, 'in_progress');
+      const someCase = new CardModel(1, 'Some Card',
+        ['http://www.qygjxz.com/data/out/193/3856596-random-image.png'], doctorUser, doctorUser, 24, 'in_progress');
 
-      const cases: Case[] = [someCase];
+      const cases: CardModel[] = [someCase];
 
       return new Observable(resp => {
         resp.next(new HttpResponse<any>({

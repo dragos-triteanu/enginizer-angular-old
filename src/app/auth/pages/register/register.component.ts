@@ -5,22 +5,22 @@ import { AlertService } from '../../../shared/services/index';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
-  selector: "enginizer-register",
+  selector: 'ngnizr-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 
-export class RegisterComponent implements OnInit{
-  model:any = {};
+export class RegisterComponent implements OnInit {
+  model: any = {};
   loading = false;
-  returnUrl:string;
-  isPasswordSameAsConfirmation:boolean = true;
-  isSexSelected:boolean = true;
+  returnUrl: string;
+  isPasswordSameAsConfirmation = true;
+  isSexSelected = true;
 
-  constructor(private route:ActivatedRoute,
-              private router:Router,
-              private authenticationService:AuthenticationService,
-              private alertService:AlertService) {
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private authenticationService: AuthenticationService,
+              private alertService: AlertService) {
   }
 
   confirmationMatches() {
@@ -32,10 +32,10 @@ export class RegisterComponent implements OnInit{
     return this.isPasswordSameAsConfirmation;
   }
 
-  checkIfSexSelected(){
-    if(this.model.sex === undefined){
+  checkIfSexSelected() {
+    if (this.model.sex === undefined) {
       this.isSexSelected = false;
-    }else{
+    } else {
       this.isSexSelected = true;
     }
     return this.isSexSelected;
@@ -47,11 +47,11 @@ export class RegisterComponent implements OnInit{
   }
 
   register() {
-    var THIS = this;
+    const THIS = this;
     this.loading = true;
-    this.model.role = "USER";
+    this.model.role = 'USER';
     this.authenticationService.signUpUser(this.model)
-      .then( function (token) {
+      .then(function (token) {
         THIS.router.navigate([THIS.returnUrl]);
         THIS.authenticationService.setToken(token);
       }).catch(function (error) {

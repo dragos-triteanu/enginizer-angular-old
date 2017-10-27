@@ -7,12 +7,12 @@
                  selectionMode="single" [(selection)]="selectedUser"
                  [paginator]="true" [rows]="10" (onRowSelect)="onRowSelect($event)"
                  [rowStyleClass]="lookupRowStyleClass"
-                 [globalFilter]="gb" #dt>
+                 #dt>
       <p-column field="name" header="Name" [sortable]="true"></p-column>
       <p-column field="email" header="E-mail" [sortable]="true"></p-column>
     </p-dataTable>
   </div>
-<ngnizr-fab (onClick)="openCrudModal()"></ngnizr-fab>
+  <ngnizr-fab (onClick)="openCrudModal()"></ngnizr-fab>
 </div>
 <ngnizr-doctor-modal [user]="selectedUser" (onCreate)="createUser($event)"></ngnizr-doctor-modal>
 
